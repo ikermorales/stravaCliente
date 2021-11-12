@@ -38,6 +38,12 @@ public class VentanaPrincipal extends JFrame {
 		
 		JButton btnNewButton = new JButton("Crear entrenamiento");
 		btnNewButton.setBounds(10, 97, 175, 34);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new VentanaCrearEntrenamiento();
+				dispose();
+			}
+		});
 		getContentPane().add(btnNewButton);
 		
 		JButton btnVerEntrenamiento = new JButton("Ver entrenamiento");
@@ -50,6 +56,12 @@ public class VentanaPrincipal extends JFrame {
 		
 		JButton btnCrearReto = new JButton("Crear reto");
 		btnCrearReto.setBounds(195, 97, 175, 34);
+		btnCrearReto.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new VentanaCrearReto();
+				dispose();
+			}
+		});
 		getContentPane().add(btnCrearReto);
 		
 		JButton btnVerRetos = new JButton("Ver retos");

@@ -19,10 +19,17 @@ import javax.swing.ImageIcon;
 import javax.swing.JSeparator;
 import javax.swing.JSplitPane;
 import javax.swing.JPasswordField;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JFormattedTextField;
 
 public class VentanaCrearConEmail {
 
 	private JFrame frame;
+	private JTextField textField;
+	private JTextField textField_2;
+	private JTextField textField_3;
+	private JTextField textField_1;
 
 	/**
 	 * Launch the application.
@@ -54,18 +61,18 @@ public class VentanaCrearConEmail {
 		frame = new JFrame();
 		frame.getContentPane().setForeground(new Color(0, 0, 0));
 		frame.getContentPane().setBackground(new Color(255, 255, 255));
-		frame.setBounds(100, 100, 254, 339);
+		frame.setBounds(100, 100, 270, 339);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Datos Extra");
+		JLabel lblNewLabel = new JLabel("Entrenamiento");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Century Gothic", Font.PLAIN, 20));
-		lblNewLabel.setBounds(10, 11, 217, 71);
+		lblNewLabel.setBounds(10, 11, 238, 40);
 		frame.getContentPane().add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("Volver");
-		btnNewButton.setBounds(25, 268, 89, 23);
+		btnNewButton.setBounds(26, 268, 89, 23);
 		frame.getContentPane().add(btnNewButton);
 		
 		JButton btnAnyadir = new JButton("A\u00F1adir");
@@ -73,62 +80,61 @@ public class VentanaCrearConEmail {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnAnyadir.setBounds(124, 268, 89, 23);
+		btnAnyadir.setBounds(138, 268, 89, 23);
 		frame.getContentPane().add(btnAnyadir);
 		
+		JLabel lblNewLabel_1 = new JLabel("Titulo: ");
+		lblNewLabel_1.setBounds(10, 69, 48, 14);
+		frame.getContentPane().add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("Deporte:");
+		lblNewLabel_2.setBounds(10, 97, 57, 14);
+		frame.getContentPane().add(lblNewLabel_2);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"correr", "bici"}));
+		comboBox.setSelectedIndex(1);
+		comboBox.setBounds(100, 94, 148, 20);
+		frame.getContentPane().add(comboBox);
+		
+		textField = new JTextField();
+		textField.setBounds(100, 66, 148, 20);
+		frame.getContentPane().add(textField);
+		textField.setColumns(10);
+		
+		textField_2 = new JTextField();
+		textField_2.setColumns(10);
+		textField_2.setBounds(100, 150, 148, 20);
+		frame.getContentPane().add(textField_2);
+		
+		JLabel lblNewLabel_1_1_1 = new JLabel("Fecha inicio: ");
+		lblNewLabel_1_1_1.setBounds(10, 153, 80, 14);
+		frame.getContentPane().add(lblNewLabel_1_1_1);
+		
+		JLabel lblNewLabel_1_1_1_1 = new JLabel("Fecha fin: ");
+		lblNewLabel_1_1_1_1.setBounds(10, 184, 80, 14);
+		frame.getContentPane().add(lblNewLabel_1_1_1_1);
+		
+		textField_3 = new JTextField();
+		textField_3.setColumns(10);
+		textField_3.setBounds(100, 181, 148, 20);
+		frame.getContentPane().add(textField_3);
+		
 		JSpinner spinner = new JSpinner();
-		spinner.setEnabled(false);
-		spinner.setBounds(177, 96, 50, 20);
+		spinner.setBounds(100, 209, 58, 20);
 		frame.getContentPane().add(spinner);
 		
-		JLabel lblNewLabel_2_1_1_2 = new JLabel("Altura (cm): ");
-		lblNewLabel_2_1_1_2.setHorizontalAlignment(SwingConstants.LEFT);
-		lblNewLabel_2_1_1_2.setForeground(new Color(0, 0, 0));
-		lblNewLabel_2_1_1_2.setBounds(10, 99, 157, 14);
-		frame.getContentPane().add(lblNewLabel_2_1_1_2);
+		JLabel lblNewLabel_1_1_1_1_1 = new JLabel("Duracion: ");
+		lblNewLabel_1_1_1_1_1.setBounds(10, 212, 74, 14);
+		frame.getContentPane().add(lblNewLabel_1_1_1_1_1);
 		
-		JLabel lblNewLabel_2_1_1_1_2 = new JLabel("Peso (kg): ");
-		lblNewLabel_2_1_1_1_2.setHorizontalAlignment(SwingConstants.LEFT);
-		lblNewLabel_2_1_1_1_2.setForeground(new Color(0, 0, 0));
-		lblNewLabel_2_1_1_1_2.setBounds(10, 130, 157, 14);
-		frame.getContentPane().add(lblNewLabel_2_1_1_1_2);
+		JLabel lblNewLabel_1_1_1_2 = new JLabel("Distancia: ");
+		lblNewLabel_1_1_1_2.setBounds(10, 125, 80, 14);
+		frame.getContentPane().add(lblNewLabel_1_1_1_2);
 		
-		JSpinner spinner_1 = new JSpinner();
-		spinner_1.setEnabled(false);
-		spinner_1.setBounds(177, 127, 50, 20);
-		frame.getContentPane().add(spinner_1);
-		
-		JSpinner spinner_1_1 = new JSpinner();
-		spinner_1_1.setEnabled(false);
-		spinner_1_1.setBounds(177, 158, 50, 20);
-		frame.getContentPane().add(spinner_1_1);
-		
-		JLabel lblNewLabel_2_1_1 = new JLabel("Frecuencia cardiaca maxima: ");
-		lblNewLabel_2_1_1.setHorizontalAlignment(SwingConstants.LEFT);
-		lblNewLabel_2_1_1.setForeground(new Color(0, 0, 0));
-		lblNewLabel_2_1_1.setBounds(10, 161, 157, 14);
-		frame.getContentPane().add(lblNewLabel_2_1_1);
-		
-		JLabel lblNewLabel_2_1_1_1 = new JLabel("Frecuencia cardiaca reposo:  ");
-		lblNewLabel_2_1_1_1.setHorizontalAlignment(SwingConstants.LEFT);
-		lblNewLabel_2_1_1_1.setForeground(new Color(0, 0, 0));
-		lblNewLabel_2_1_1_1.setBounds(10, 192, 157, 14);
-		frame.getContentPane().add(lblNewLabel_2_1_1_1);
-		
-		JSpinner spinner_1_1_1 = new JSpinner();
-		spinner_1_1_1.setEnabled(false);
-		spinner_1_1_1.setBounds(177, 189, 50, 20);
-		frame.getContentPane().add(spinner_1_1_1);
-		
-		JSpinner spinner_1_1_1_1 = new JSpinner();
-		spinner_1_1_1_1.setEnabled(false);
-		spinner_1_1_1_1.setBounds(177, 220, 50, 20);
-		frame.getContentPane().add(spinner_1_1_1_1);
-		
-		JLabel lblNewLabel_2_1_1_1_1 = new JLabel("RPM:  ");
-		lblNewLabel_2_1_1_1_1.setHorizontalAlignment(SwingConstants.LEFT);
-		lblNewLabel_2_1_1_1_1.setForeground(new Color(0, 0, 0));
-		lblNewLabel_2_1_1_1_1.setBounds(10, 223, 157, 14);
-		frame.getContentPane().add(lblNewLabel_2_1_1_1_1);
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(100, 122, 148, 20);
+		frame.getContentPane().add(textField_1);
 	}
 }

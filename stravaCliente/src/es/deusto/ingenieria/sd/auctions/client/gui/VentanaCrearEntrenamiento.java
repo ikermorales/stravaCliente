@@ -1,114 +1,107 @@
 package es.deusto.ingenieria.sd.auctions.client.gui;
 
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Date;
 
 import javax.swing.*;
 
 public class VentanaCrearEntrenamiento extends JFrame {
-//	private String titulo;	
-//	private String deporte;	
-//	private float distancia;
-//	private Date fechaIni;	
-//	private long horaIni;
-//	private long duracion;	
 	
-	private JPanel panelPrincipal;
-
-	private JPanel panelTitulo;
-	private JTextField textoTitulo;
-
-	private JPanel panelDeporte;
-	private JComboBox<String> comboDeporte;
-
-	private JPanel panelDistancia;
-	private JSpinner spinnerDistancia;
-	
-	private JPanel panelDuracion;
-	private JSpinner spinnerDuracion;
-	
-	private JPanel panelFechaIni;
-	private JTextField dateIni;
-	
-	private JPanel panelHoraIni;
-	private JTextField horaIni;
-
-
-	private JPanel panelBotonera;
-	private JPanel panelBotonConfirmar;
-	private JButton botonConfirmar;
-	private JPanel panelBotonVolver;
-	private JButton botonCancelar;
-	
+	private JTextField textField;
+	private JTextField textField_2;
+	private JTextField textField_3;
+	private JTextField textField_1;
 	
 	public VentanaCrearEntrenamiento() {
-		setTitle("Crear reto");
-		setSize(new Dimension(300, 500));
-		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-		setLayout(new GridLayout(1,1));
-
-		panelPrincipal = new JPanel();
-		panelPrincipal.setLayout(new GridLayout(7,1));
-		add(panelPrincipal);
-
-		panelTitulo = new JPanel();
-		textoTitulo = new JTextField();
-		panelTitulo.add(new JLabel("Titulo:"));
-		panelTitulo.add(textoTitulo);
-		textoTitulo.setPreferredSize(new Dimension(175,25));
-		panelPrincipal.add(panelTitulo);
-
-		panelDeporte = new JPanel();
-		comboDeporte = new JComboBox<>();
-		panelDeporte.add(new JLabel("Deporte:"));
-		panelDeporte.add(comboDeporte);
-		comboDeporte.addItem("Correr");
-		comboDeporte.addItem("Bici");
-		comboDeporte.setSelectedItem("Correr");
-		panelPrincipal.add(panelDeporte);
+		getContentPane().setForeground(new Color(0, 0, 0));
+		getContentPane().setBackground(new Color(255, 255, 255));
+		setBounds(100, 100, 270, 339);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		getContentPane().setLayout(null);
 		
-		panelDistancia = new JPanel();
-		spinnerDistancia = new JSpinner();
-		panelDistancia.add(new JLabel("Distancia (km):"));
-		spinnerDistancia.setPreferredSize(new Dimension(50,25));
-		panelDistancia.add(spinnerDistancia);
-		panelPrincipal.add(panelDistancia);
+		JLabel lblNewLabel = new JLabel("Entrenamiento");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setFont(new Font("Century Gothic", Font.PLAIN, 20));
+		lblNewLabel.setBounds(10, 11, 238, 40);
+		getContentPane().add(lblNewLabel);
 		
-		panelDuracion = new JPanel();
-		spinnerDuracion = new JSpinner();
-		panelDuracion.add(new JLabel("Duracion (h):"));
-		spinnerDuracion.setPreferredSize(new Dimension(50,25));
-		panelDuracion.add(spinnerDuracion);
-		panelPrincipal.add(panelDuracion);
-
-		panelFechaIni = new JPanel();
-		dateIni = new JTextField();
-		panelFechaIni.add(new JLabel("Fecha inicio:"));
-		panelFechaIni.add(dateIni);
-		dateIni.setPreferredSize(new Dimension(175,25));
-		panelPrincipal.add(panelFechaIni);
-
-		panelHoraIni = new JPanel();
-		horaIni = new JTextField();
-		panelHoraIni.add(new JLabel("Hora inicio:"));
-		panelHoraIni.add(horaIni);
-		horaIni.setPreferredSize(new Dimension(175,25));
-		panelPrincipal.add(panelHoraIni);
-
-		panelBotonera = new JPanel();  
-		panelBotonera.setLayout(new GridLayout(1,2));
-		panelBotonConfirmar = new JPanel();
-		panelBotonVolver = new JPanel();
-		botonCancelar = new JButton("Volver");
-		botonCancelar.setPreferredSize(new Dimension(100, 25));
-		panelBotonVolver.add(botonCancelar);
-		panelBotonera.add(panelBotonVolver); 
-		botonConfirmar = new JButton("Confirmar");
-		botonConfirmar.setPreferredSize(new Dimension(100, 25));
-		panelBotonConfirmar.add(botonConfirmar);
-		panelBotonera.add(panelBotonConfirmar); 
-		panelPrincipal.add(panelBotonera);
+		JButton btnNewButton = new JButton("Volver");
+		btnNewButton.setBounds(26, 268, 89, 23);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				new VentanaPrincipal();
+			}
+		});
+		getContentPane().add(btnNewButton);
+		
+		JButton btnAnyadir = new JButton("A\u00F1adir");
+		btnAnyadir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		btnAnyadir.setBounds(138, 268, 89, 23);
+		getContentPane().add(btnAnyadir);
+		
+		JLabel lblNewLabel_1 = new JLabel("Titulo: ");
+		lblNewLabel_1.setBounds(10, 69, 48, 14);
+		getContentPane().add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("Deporte:");
+		lblNewLabel_2.setBounds(10, 97, 57, 14);
+		getContentPane().add(lblNewLabel_2);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"correr", "bici"}));
+		comboBox.setSelectedIndex(1);
+		comboBox.setBounds(100, 94, 148, 20);
+		getContentPane().add(comboBox);
+		
+		textField = new JTextField();
+		textField.setBounds(100, 66, 148, 20);
+		getContentPane().add(textField);
+		textField.setColumns(10);
+		
+		textField_2 = new JTextField();
+		textField_2.setColumns(10);
+		textField_2.setBounds(100, 150, 148, 20);
+		getContentPane().add(textField_2);
+		
+		JLabel lblNewLabel_1_1_1 = new JLabel("Fecha inicio: ");
+		lblNewLabel_1_1_1.setBounds(10, 153, 80, 14);
+		getContentPane().add(lblNewLabel_1_1_1);
+		
+		JLabel lblNewLabel_1_1_1_1 = new JLabel("Fecha fin: ");
+		lblNewLabel_1_1_1_1.setBounds(10, 184, 80, 14);
+		getContentPane().add(lblNewLabel_1_1_1_1);
+		
+		textField_3 = new JTextField();
+		textField_3.setColumns(10);
+		textField_3.setBounds(100, 181, 148, 20);
+		getContentPane().add(textField_3);
+		
+		JSpinner spinner = new JSpinner();
+		spinner.setBounds(100, 209, 58, 20);
+		getContentPane().add(spinner);
+		
+		JLabel lblNewLabel_1_1_1_1_1 = new JLabel("Duracion: ");
+		lblNewLabel_1_1_1_1_1.setBounds(10, 212, 74, 14);
+		getContentPane().add(lblNewLabel_1_1_1_1_1);
+		
+		JLabel lblNewLabel_1_1_1_2 = new JLabel("Distancia: ");
+		lblNewLabel_1_1_1_2.setBounds(10, 125, 80, 14);
+		getContentPane().add(lblNewLabel_1_1_1_2);
+		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(100, 122, 148, 20);
+		getContentPane().add(textField_1);
 
 		setVisible(true);
 
