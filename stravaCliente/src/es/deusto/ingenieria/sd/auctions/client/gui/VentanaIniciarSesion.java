@@ -3,6 +3,8 @@ package es.deusto.ingenieria.sd.auctions.client.gui;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
@@ -74,9 +76,21 @@ public class VentanaIniciarSesion extends JFrame {
 
 		panelBotonera = new JPanel();
 		aceptar = new JButton("Iniciar Sesión");
+		aceptar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new VentanaPrincipal();
+				dispose();
+			}
+		});
 		crearUsuario = new JButton("Crear Nuevo Usuario");
+		crearUsuario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new VentanaCrearUsuarioMetodo();
+				dispose();
+			}
+		});
 		aceptar.setEnabled(false);
-		crearUsuario.setEnabled(false);
+		crearUsuario.setEnabled(true);
 		panelBotonera.add(aceptar);
 		panelBotonera.add(crearUsuario);
 		panelBotonera.setBackground(new Color(111, 195, 179));
@@ -114,11 +128,9 @@ public class VentanaIniciarSesion extends JFrame {
 	public void changed() {
 		if (contraseña.getText().equals("") || contraseña.getText().contains(" ") || usuario.getText().equals("") || usuario.getText().contains(" ")){
 			aceptar.setEnabled(false);
-			crearUsuario.setEnabled(false);
 		}
 		else {
 			aceptar.setEnabled(true);
-			crearUsuario.setEnabled(true);
 		}
 	}
 		
