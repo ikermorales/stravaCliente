@@ -66,7 +66,7 @@ public class VentanaPerfil extends JFrame{
 		spinner_1_1.setBounds(177, 82, 50, 20);
 		panel.add(spinner_1_1);
 		
-		JLabel lblNewLabel_2_1_1_1 = new JLabel("Frecuencia cardiaca reposo:  ");
+		JLabel lblNewLabel_2_1_1_1 = new JLabel("Frecuencia en reposo:  ");
 		lblNewLabel_2_1_1_1.setBounds(14, 116, 157, 14);
 		panel.add(lblNewLabel_2_1_1_1);
 		lblNewLabel_2_1_1_1.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -84,7 +84,7 @@ public class VentanaPerfil extends JFrame{
 		lblNewLabel_2_1_1_2.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblNewLabel_2_1_1_2.setForeground(Color.WHITE);
 		
-		JLabel lblNewLabel_2_1_1 = new JLabel("Frecuencia cardiaca maxima: ");
+		JLabel lblNewLabel_2_1_1 = new JLabel("Frecuencia cardiaca max: ");
 		lblNewLabel_2_1_1.setBounds(14, 85, 157, 14);
 		panel.add(lblNewLabel_2_1_1);
 		lblNewLabel_2_1_1.setHorizontalAlignment(SwingConstants.RIGHT);

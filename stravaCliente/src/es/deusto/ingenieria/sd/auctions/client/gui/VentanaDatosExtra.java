@@ -67,13 +67,13 @@ public class VentanaDatosExtra extends JFrame {
 		spinner_1_1.setBounds(177, 158, 50, 20);
 		getContentPane().add(spinner_1_1);
 		
-		JLabel lblNewLabel_2_1_1 = new JLabel("Frecuencia cardiaca maxima: ");
+		JLabel lblNewLabel_2_1_1 = new JLabel("Frecuencia cardiaca max: ");
 		lblNewLabel_2_1_1.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel_2_1_1.setForeground(new Color(0, 0, 0));
 		lblNewLabel_2_1_1.setBounds(10, 161, 157, 14);
 		getContentPane().add(lblNewLabel_2_1_1);
 		
-		JLabel lblNewLabel_2_1_1_1 = new JLabel("Frecuencia cardiaca reposo:  ");
+		JLabel lblNewLabel_2_1_1_1 = new JLabel("Frecuencia en reposo:  ");
 		lblNewLabel_2_1_1_1.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel_2_1_1_1.setForeground(new Color(0, 0, 0));
 		lblNewLabel_2_1_1_1.setBounds(10, 192, 157, 14);
