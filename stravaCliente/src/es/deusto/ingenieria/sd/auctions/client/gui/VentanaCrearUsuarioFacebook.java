@@ -57,6 +57,7 @@ public class VentanaCrearUsuarioFacebook extends JFrame{
 		JButton btnCrear = new JButton("Crear");
 		btnCrear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 			}
 		});
 		btnCrear.setBounds(146, 213, 106, 23);
@@ -65,6 +66,8 @@ public class VentanaCrearUsuarioFacebook extends JFrame{
 		JButton btnNewButton_1 = new JButton("datos extra");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				new VentanaDatosExtra();
+				
 			}
 		});
 		btnNewButton_1.setBounds(146, 165, 106, 23);

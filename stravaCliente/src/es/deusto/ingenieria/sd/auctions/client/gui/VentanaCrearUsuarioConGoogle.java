@@ -67,7 +67,7 @@ public class VentanaCrearUsuarioConGoogle extends JFrame {
 		JButton btnNewButton_1 = new JButton("datos extra");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				new VentanaDatosExtra();
 			}
 		});
 		btnNewButton_1.setBounds(146, 165, 106, 23);

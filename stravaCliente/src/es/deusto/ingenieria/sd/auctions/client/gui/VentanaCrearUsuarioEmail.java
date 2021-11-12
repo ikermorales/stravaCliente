@@ -82,6 +82,11 @@ public class VentanaCrearUsuarioEmail extends JFrame {
 		getContentPane().add(btnCrear);
 		
 		JButton btnNewButton_1 = new JButton("datos extra");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new VentanaDatosExtra();
+			}
+		});
 		btnNewButton_1.setBounds(165, 169, 87, 23);
 		getContentPane().add(btnNewButton_1);
 		
