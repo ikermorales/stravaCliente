@@ -1,7 +1,6 @@
 package es.deusto.ingenieria.sd.auctions.client.controller;
 
-import java.rmi.RemoteException;
-
+import java.rmi.RemoteException; 
 import es.deusto.ingenieria.sd.auctions.client.remote.ServiceLocator;
 
 //This class implements Controller pattern.

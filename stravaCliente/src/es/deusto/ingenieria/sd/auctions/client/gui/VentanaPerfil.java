@@ -45,8 +45,7 @@ public class VentanaPerfil extends JFrame{
 		getContentPane().add(lblNewLabel_1_1_1);
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(new Color(238, 130, 238));
-		panel.setBorder(new LineBorder(new Color(238, 130, 238), 1, true));
+		panel.setBackground(Color.BLACK);
 		panel.setBounds(10, 183, 261, 178);
 		getContentPane().add(panel);
 		panel.setLayout(null);

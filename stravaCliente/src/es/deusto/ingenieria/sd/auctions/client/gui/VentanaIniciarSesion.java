@@ -17,9 +17,9 @@ public class VentanaIniciarSesion extends JFrame {
 	private JTextField usuario;
 	private JLabel labelUsuario = new JLabel("        Usuario: ");
 
-	private JPanel panelcontraseña;
-	private JPasswordField contraseña;
-	private JLabel labelcontraseña = new JLabel("  Contraseña: ");
+	private JPanel panelContrasenya;
+	private JPasswordField contrasenya;
+	private JLabel labelContrasenya = new JLabel("  Contraseña: ");
 
 	private JButton aceptar;
 	private JButton crearUsuario;
@@ -54,7 +54,7 @@ public class VentanaIniciarSesion extends JFrame {
 		panelDatos.setLayout(new GridLayout(3,1));
 		panelDatos.setBorder(new LineBorder(Color.LIGHT_GRAY));
 		panelDatos.setSize(new Dimension(100,100));
-		panelDatos.setBackground(new Color(111, 195, 179));
+		panelDatos.setBackground(new Color(0,0,0));
 		panelDatos.setPreferredSize(new Dimension(280,100));
 		add(panelDatos);
 
@@ -62,17 +62,19 @@ public class VentanaIniciarSesion extends JFrame {
 		usuario = new JTextField();
 		usuario.setPreferredSize(new Dimension(100,25));
 		panelUsuario.add(labelUsuario);
+		labelUsuario.setForeground(Color.WHITE);
 		panelUsuario.add(usuario);
-		panelUsuario.setBackground(new Color(111, 195, 179));
+		panelUsuario.setBackground(new Color(0,0,0));
 		panelDatos.add(panelUsuario);
 
-		panelcontraseña = new JPanel();
-		contraseña = new JPasswordField();
-		contraseña.setPreferredSize(new Dimension(100,25));
-		panelcontraseña.add(labelcontraseña);
-		panelcontraseña.add(contraseña);
-		panelcontraseña.setBackground(new Color(111, 195, 179));
-		panelDatos.add(panelcontraseña);
+		panelContrasenya = new JPanel();
+		contrasenya = new JPasswordField();
+		contrasenya.setPreferredSize(new Dimension(100,25));
+		panelContrasenya.add(labelContrasenya);
+		labelContrasenya.setForeground(Color.WHITE);
+		panelContrasenya.add(contrasenya);
+		panelContrasenya.setBackground(new Color(0,0,0));
+		panelDatos.add(panelContrasenya);
 
 		panelBotonera = new JPanel();
 		aceptar = new JButton("Iniciar Sesión");
@@ -91,9 +93,13 @@ public class VentanaIniciarSesion extends JFrame {
 		});
 		aceptar.setEnabled(false);
 		crearUsuario.setEnabled(true);
+		crearUsuario.setForeground(Color.BLACK);
+		aceptar.setForeground(Color.BLACK);
+		crearUsuario.setBackground(Color.WHITE);
+		aceptar.setBackground(Color.WHITE);
 		panelBotonera.add(aceptar);
 		panelBotonera.add(crearUsuario);
-		panelBotonera.setBackground(new Color(111, 195, 179));
+		panelBotonera.setBackground(new Color(0,0,0));
 		panelDatos.add(panelBotonera);
 		
 		usuario.getDocument().addDocumentListener(new DocumentListener() {
@@ -108,7 +114,7 @@ public class VentanaIniciarSesion extends JFrame {
 			}
 		});
 
-		contraseña.getDocument().addDocumentListener(new DocumentListener() {
+		contrasenya.getDocument().addDocumentListener(new DocumentListener() {
 			public void changedUpdate(DocumentEvent e) {
 				changed();
 			}
@@ -126,7 +132,7 @@ public class VentanaIniciarSesion extends JFrame {
 
 
 	public void changed() {
-		if (contraseña.getText().equals("") || contraseña.getText().contains(" ") || usuario.getText().equals("") || usuario.getText().contains(" ")){
+		if (contrasenya.getText().equals("") || contrasenya.getText().contains(" ") || usuario.getText().equals("") || usuario.getText().contains(" ")){
 			aceptar.setEnabled(false);
 		}
 		else {
