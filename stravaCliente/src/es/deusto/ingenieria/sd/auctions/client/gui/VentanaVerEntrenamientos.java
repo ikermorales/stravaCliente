@@ -1,5 +1,10 @@
 package es.deusto.ingenieria.sd.auctions.client.gui;
 
-public class VentanaVerEntrenamientos {
+import javax.swing.JFrame;
 
+public class VentanaVerEntrenamientos extends JFrame {
+
+	public VentanaVerEntrenamientos() {
+		
+	}
 }
