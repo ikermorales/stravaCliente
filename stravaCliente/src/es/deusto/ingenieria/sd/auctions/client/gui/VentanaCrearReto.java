@@ -26,7 +26,7 @@ public class VentanaCrearReto extends JFrame {
 		JLabel lblNewLabel = new JLabel("Reto");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Century Gothic", Font.PLAIN, 20));
-		lblNewLabel.setBounds(10, 11, 217, 40);
+		lblNewLabel.setBounds(10, 11, 238, 40);
 		getContentPane().add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("Volver");
@@ -40,12 +40,12 @@ public class VentanaCrearReto extends JFrame {
 		getContentPane().add(btnNewButton);
 		
 		JButton btnAnyadir = new JButton("A\u00F1adir");
-		btnAnyadir.setBounds(138, 268, 89, 23);
-		getContentPane().add(btnAnyadir);
 		btnAnyadir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
+		btnAnyadir.setBounds(138, 268, 89, 23);
+		getContentPane().add(btnAnyadir);
 		
 		JLabel lblNewLabel_1 = new JLabel("Titulo: ");
 		lblNewLabel_1.setBounds(10, 69, 48, 14);

@@ -27,9 +27,9 @@ public class VentanaCrearConEmail {
 
 	private JFrame frame;
 	private JTextField textField;
+	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
-	private JTextField textField_1;
 
 	/**
 	 * Launch the application.
@@ -65,7 +65,7 @@ public class VentanaCrearConEmail {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Entrenamiento");
+		JLabel lblNewLabel = new JLabel("Reto");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Century Gothic", Font.PLAIN, 20));
 		lblNewLabel.setBounds(10, 11, 238, 40);
@@ -87,14 +87,18 @@ public class VentanaCrearConEmail {
 		lblNewLabel_1.setBounds(10, 69, 48, 14);
 		frame.getContentPane().add(lblNewLabel_1);
 		
+		JLabel lblNewLabel_1_1 = new JLabel("Descripcion: ");
+		lblNewLabel_1_1.setBounds(10, 99, 80, 14);
+		frame.getContentPane().add(lblNewLabel_1_1);
+		
 		JLabel lblNewLabel_2 = new JLabel("Deporte:");
-		lblNewLabel_2.setBounds(10, 97, 57, 14);
+		lblNewLabel_2.setBounds(10, 130, 57, 14);
 		frame.getContentPane().add(lblNewLabel_2);
 		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"correr", "bici"}));
 		comboBox.setSelectedIndex(1);
-		comboBox.setBounds(100, 94, 148, 20);
+		comboBox.setBounds(100, 127, 148, 20);
 		frame.getContentPane().add(comboBox);
 		
 		textField = new JTextField();
@@ -102,39 +106,35 @@ public class VentanaCrearConEmail {
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
 		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(100, 96, 148, 20);
+		frame.getContentPane().add(textField_1);
+		
 		textField_2 = new JTextField();
 		textField_2.setColumns(10);
-		textField_2.setBounds(100, 150, 148, 20);
+		textField_2.setBounds(100, 158, 148, 20);
 		frame.getContentPane().add(textField_2);
 		
 		JLabel lblNewLabel_1_1_1 = new JLabel("Fecha inicio: ");
-		lblNewLabel_1_1_1.setBounds(10, 153, 80, 14);
+		lblNewLabel_1_1_1.setBounds(10, 161, 80, 14);
 		frame.getContentPane().add(lblNewLabel_1_1_1);
 		
 		JLabel lblNewLabel_1_1_1_1 = new JLabel("Fecha fin: ");
-		lblNewLabel_1_1_1_1.setBounds(10, 184, 80, 14);
+		lblNewLabel_1_1_1_1.setBounds(10, 189, 80, 14);
 		frame.getContentPane().add(lblNewLabel_1_1_1_1);
 		
 		textField_3 = new JTextField();
 		textField_3.setColumns(10);
-		textField_3.setBounds(100, 181, 148, 20);
+		textField_3.setBounds(100, 186, 148, 20);
 		frame.getContentPane().add(textField_3);
 		
 		JSpinner spinner = new JSpinner();
-		spinner.setBounds(100, 209, 58, 20);
+		spinner.setBounds(100, 218, 58, 20);
 		frame.getContentPane().add(spinner);
 		
-		JLabel lblNewLabel_1_1_1_1_1 = new JLabel("Duracion: ");
-		lblNewLabel_1_1_1_1_1.setBounds(10, 212, 74, 14);
+		JLabel lblNewLabel_1_1_1_1_1 = new JLabel("Objetivo: ");
+		lblNewLabel_1_1_1_1_1.setBounds(10, 221, 74, 14);
 		frame.getContentPane().add(lblNewLabel_1_1_1_1_1);
-		
-		JLabel lblNewLabel_1_1_1_2 = new JLabel("Distancia: ");
-		lblNewLabel_1_1_1_2.setBounds(10, 125, 80, 14);
-		frame.getContentPane().add(lblNewLabel_1_1_1_2);
-		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(100, 122, 148, 20);
-		frame.getContentPane().add(textField_1);
 	}
 }
