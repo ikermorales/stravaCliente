@@ -11,6 +11,8 @@ import javax.swing.border.LineBorder;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
+import es.deusto.ingenieria.sd.auctions.client.controller.LoginController;
+
 public class VentanaIniciarSesion extends JFrame {
 
 	private JPanel panelUsuario;
@@ -31,7 +33,7 @@ public class VentanaIniciarSesion extends JFrame {
 	private JLabel labelDecorativo;
 
 
-	public VentanaIniciarSesion() {
+	public VentanaIniciarSesion(LoginController loginController) {
 		setTitle("Inicio");
 		setSize(310,260);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -80,8 +82,11 @@ public class VentanaIniciarSesion extends JFrame {
 		aceptar = new JButton("Iniciar Sesión");
 		aceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new VentanaPrincipal();
-				dispose();
+				loginController.login(getWarningString(), getName());
+				if (loginController.login(usuario.getText(), contrasenya.getText())) {
+					new VentanaPrincipal();
+					dispose();
+				}
 			}
 		});
 		crearUsuario = new JButton("Crear Nuevo Usuario");

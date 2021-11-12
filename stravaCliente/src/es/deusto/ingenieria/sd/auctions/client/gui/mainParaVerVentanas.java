@@ -1,5 +1,7 @@
 package es.deusto.ingenieria.sd.auctions.client.gui;
 
+import es.deusto.ingenieria.sd.auctions.client.controller.LoginController;
+
 public class mainParaVerVentanas {
 
 	public static void main(String[] args) {
