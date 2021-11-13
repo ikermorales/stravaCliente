@@ -1,6 +1,7 @@
 package es.deusto.ingenieria.sd.auctions.client.controller;
 
-import java.rmi.RemoteException; 
+import java.rmi.RemoteException;
+import java.util.ArrayList;
 import java.util.List;
 
 import es.deusto.ingenieria.sd.auctions.client.remote.ServiceLocator;
@@ -17,16 +18,16 @@ public class BidController {
 		this.serviceLocator = serviceLocator; 
 	}
 
-	public List<RetoDTO> getRetos() {
+	public ArrayList<RetoDTO> getRetos(String deporte) {
 		try {
-			return this.serviceLocator.getService().getRetos();
+			return this.serviceLocator.getService().getRetos(deporte);
 		} catch (RemoteException e) {
 			System.out.println("# Error getting retos: " + e);
 			return null;
 		}
 	}
 
-	public List<EntrenamientoDTO> getEntrenamientos(String deporte) {
+	public ArrayList<EntrenamientoDTO> getEntrenamientos(String deporte) {
 		try {
 			return this.serviceLocator.getService().getEntrenamientos(deporte);
 		} catch (RemoteException e) {

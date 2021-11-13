@@ -11,13 +11,15 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import es.deusto.ingenieria.sd.auctions.client.controller.LoginController;
+
 public class VentanaCrearUsuarioEmail extends JFrame {
 
 	private JTextField textNickName;
 	private JTextField textEmail;
 	private JTextField textContrasenya;
 	
-	public VentanaCrearUsuarioEmail() {
+	public VentanaCrearUsuarioEmail(LoginController loginController) {
 		getContentPane().setBackground(new Color(255, 255, 255));
 		setBounds(100, 100, 290, 302);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -66,7 +68,7 @@ public class VentanaCrearUsuarioEmail extends JFrame {
 		JButton btnNewButton = new JButton("Cancelar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new VentanaCrearUsuarioMetodo();
+				new VentanaCrearUsuarioMetodo(loginController);
 				dispose();
 			}
 		});

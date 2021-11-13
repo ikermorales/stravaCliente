@@ -10,12 +10,14 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import es.deusto.ingenieria.sd.auctions.client.controller.LoginController;
+
 public class VentanaCrearUsuarioConGoogle extends JFrame {
 
 	private JTextField textNickName;
 	private JTextField textEmail;
 	
-	public VentanaCrearUsuarioConGoogle() {
+	public VentanaCrearUsuarioConGoogle(LoginController loginController) {
 		getContentPane().setBackground(new Color(255, 255, 255));
 		setBounds(100, 100, 290, 279);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -48,7 +50,7 @@ public class VentanaCrearUsuarioConGoogle extends JFrame {
 		JButton btnNewButton = new JButton("Cancelar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new VentanaCrearUsuarioMetodo();
+				new VentanaCrearUsuarioMetodo(loginController);
 				dispose();
 			}
 		});

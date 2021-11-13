@@ -11,9 +11,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
+import es.deusto.ingenieria.sd.auctions.client.controller.LoginController;
+
 public class VentanaCrearUsuarioMetodo extends JFrame {
 
-	public VentanaCrearUsuarioMetodo(){
+	public VentanaCrearUsuarioMetodo(LoginController loginController){
 		getContentPane().setBackground(new Color(255, 255, 255));
 		setBounds(100, 100, 316, 279);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -26,7 +28,7 @@ public class VentanaCrearUsuarioMetodo extends JFrame {
 		JButton btnNewButton = new JButton("Cancelar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new VentanaIniciarSesion();
+				new VentanaIniciarSesion(loginController);
 				dispose();
 			}
 		});
@@ -42,7 +44,7 @@ public class VentanaCrearUsuarioMetodo extends JFrame {
 		JButton btnNewButton_1 = new JButton("");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new VentanaCrearUsuarioEmail();
+				new VentanaCrearUsuarioEmail(loginController);
 				dispose();
 			}
 		});
@@ -53,7 +55,7 @@ public class VentanaCrearUsuarioMetodo extends JFrame {
 		JButton btnNewButton_1_1 = new JButton("");
 		btnNewButton_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new VentanaCrearUsuarioConGoogle();
+				new VentanaCrearUsuarioConGoogle(loginController);
 				dispose();
 			}
 		});
@@ -64,7 +66,7 @@ public class VentanaCrearUsuarioMetodo extends JFrame {
 		JButton btnNewButton_1_1_1 = new JButton("");
 		btnNewButton_1_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new VentanaCrearUsuarioFacebook();
+				new VentanaCrearUsuarioFacebook(loginController);
 				dispose();
 			}
 		});
