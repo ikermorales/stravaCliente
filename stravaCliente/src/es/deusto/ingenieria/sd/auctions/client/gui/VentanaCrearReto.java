@@ -9,6 +9,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
+
 public class VentanaCrearReto extends JFrame {
 
 	private JTextField textField;
@@ -16,7 +18,7 @@ public class VentanaCrearReto extends JFrame {
 	private JTextField textField_2;
 	private JTextField textField_3;
 
-	public VentanaCrearReto() {
+	public VentanaCrearReto(UserDTO user) {
 		getContentPane().setForeground(new Color(0, 0, 0));
 		getContentPane().setBackground(new Color(255, 255, 255));
 		setBounds(100, 100, 270, 339);
@@ -34,7 +36,7 @@ public class VentanaCrearReto extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				new VentanaPrincipal();
+				new VentanaPrincipal(user);
 			}
 		});
 		getContentPane().add(btnNewButton);

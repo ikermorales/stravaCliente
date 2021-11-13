@@ -8,6 +8,8 @@ import java.util.logging.Level;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 
+import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
+
 public class VentanaPerfil extends JFrame{
 
 	private JTextField textField_1;
@@ -17,7 +19,7 @@ public class VentanaPerfil extends JFrame{
 
 	
 	
-	public VentanaPerfil() {
+	public VentanaPerfil(UserDTO user) {
 		getContentPane().setBackground(new Color(255, 255, 255));
 		setBounds(100, 100, 293, 449);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -40,9 +42,6 @@ public class VentanaPerfil extends JFrame{
 		lblNewLabel_1_1.setBounds(10, 133, 65, 14);
 		getContentPane().add(lblNewLabel_1_1);
 		
-		JLabel lblNewLabel_1_1_1 = new JLabel("Contraseña:");
-		lblNewLabel_1_1_1.setBounds(10, 158, 89, 14);
-		getContentPane().add(lblNewLabel_1_1_1);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.BLACK);
@@ -50,17 +49,17 @@ public class VentanaPerfil extends JFrame{
 		getContentPane().add(panel);
 		panel.setLayout(null);
 		
-		JSpinner spinner = new JSpinner();
+		JTextField spinner = new JTextField();
 		spinner.setEnabled(false);
 		spinner.setBounds(177, 20, 50, 20);
 		panel.add(spinner);
 		
-		JSpinner spinner_1 = new JSpinner();
+		JTextField spinner_1 = new JTextField();
 		spinner_1.setEnabled(false);
 		spinner_1.setBounds(177, 51, 50, 20);
 		panel.add(spinner_1);
 		
-		JSpinner spinner_1_1 = new JSpinner();
+		JTextField spinner_1_1 = new JTextField();
 		spinner_1_1.setEnabled(false);
 		spinner_1_1.setBounds(177, 82, 50, 20);
 		panel.add(spinner_1_1);
@@ -95,12 +94,12 @@ public class VentanaPerfil extends JFrame{
 		lblNewLabel_2_1_1_1_1.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblNewLabel_2_1_1_1_1.setForeground(Color.WHITE);
 		
-		JSpinner spinner_1_1_1 = new JSpinner();
+		JTextField spinner_1_1_1 = new JTextField();
 		spinner_1_1_1.setEnabled(false);
 		spinner_1_1_1.setBounds(177, 113, 50, 20);
 		panel.add(spinner_1_1_1);
 		
-		JSpinner spinner_1_1_1_1 = new JSpinner();
+		JTextField spinner_1_1_1_1 = new JTextField();
 		spinner_1_1_1_1.setEnabled(false);
 		spinner_1_1_1_1.setBounds(177, 144, 50, 20);
 		panel.add(spinner_1_1_1_1);
@@ -116,16 +115,12 @@ public class VentanaPerfil extends JFrame{
 		textField_2.setColumns(10);
 		textField_2.setBounds(85, 105, 186, 20);
 		getContentPane().add(textField_2);
-		
-		passwordField = new JPasswordField();
-		passwordField.setEnabled(false);
-		passwordField.setBounds(85, 155, 186, 20);
-		getContentPane().add(passwordField);
+
 		
 		JButton btnNewButton = new JButton("Volver");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new VentanaPrincipal();
+				new VentanaPrincipal(user);
 				dispose();
 			}
 		});
@@ -140,7 +135,6 @@ public class VentanaPerfil extends JFrame{
 				if(contador % 2 != 0) {
 					textField_1.setEnabled(true);
 					textField_2.setEnabled(true);
-					passwordField.setEnabled(true);
 					spinner.setEnabled(true);
 					spinner.setEnabled(true);
 					spinner_1.setEnabled(true);
@@ -151,7 +145,6 @@ public class VentanaPerfil extends JFrame{
 				} else {
 					textField_1.setEnabled(false);
 					textField_2.setEnabled(false);
-					passwordField.setEnabled(false);
 					spinner.setEnabled(false);
 					spinner.setEnabled(false);
 					spinner_1.setEnabled(false);

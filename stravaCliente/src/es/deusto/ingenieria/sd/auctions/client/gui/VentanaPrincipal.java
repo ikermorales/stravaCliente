@@ -6,9 +6,13 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+import es.deusto.ingenieria.sd.auctions.client.controller.LoginController;
+import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
+
 public class VentanaPrincipal extends JFrame {	
 	
-	public VentanaPrincipal() {
+	public VentanaPrincipal(UserDTO user) {
+		
 		getContentPane().setBackground(new Color(255, 255, 255));
 		setBounds(100, 100, 394, 231);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -21,7 +25,7 @@ public class VentanaPrincipal extends JFrame {
 		JButton btnPerfil = new JButton("");
 		btnPerfil.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new VentanaPerfil();
+				new VentanaPerfil(user);
 				dispose();
 			}
 		});
@@ -30,7 +34,7 @@ public class VentanaPrincipal extends JFrame {
 		btnPerfil.setBounds(330, 11, 40, 39);
 		getContentPane().add(btnPerfil);
 		
-		JLabel lblNewLabel = new JLabel("STRAVA");
+		JLabel lblNewLabel = new JLabel("STRAVA - " + user.getNickname());
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Gill Sans Ultra Bold Condensed", Font.PLAIN, 27));
 		lblNewLabel.setBounds(10, 11, 360, 37);
@@ -40,7 +44,7 @@ public class VentanaPrincipal extends JFrame {
 		btnNewButton.setBounds(10, 97, 175, 34);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new VentanaCrearEntrenamiento();
+				new VentanaCrearEntrenamiento(user);
 				dispose();
 			}
 		});
@@ -58,7 +62,7 @@ public class VentanaPrincipal extends JFrame {
 		btnCrearReto.setBounds(195, 97, 175, 34);
 		btnCrearReto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new VentanaCrearReto();
+				new VentanaCrearReto(user);
 				dispose();
 			}
 		});

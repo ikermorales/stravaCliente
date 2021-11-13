@@ -1,16 +1,17 @@
 package es.deusto.ingenieria.sd.auctions.client.controller;
 
-import java.rmi.RemoteException; 
+import java.rmi.RemoteException;  
 import es.deusto.ingenieria.sd.auctions.client.remote.ServiceLocator;
+import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
 
-//This class implements Controller pattern.
+
 public class LoginController {	
-	
-	//Reference to the Service Locator
+
 	private ServiceLocator serviceLocator;
-	//This attibute stores the token when login success
 	private long token = -1; //-1 = login has not been done or fails
 
+	
+	
 	public LoginController(ServiceLocator serviceLocator) {
 		this.serviceLocator = serviceLocator;
 	}
@@ -34,8 +35,20 @@ public class LoginController {
 			System.out.println("# Error during logout: " + e);
 		}
 	}
+		
 
 	public long getToken() {
 		return token;
 	}
+
+	public UserDTO getUser(String text, String text2) {
+		try {
+			return this.serviceLocator.getService().getUser(text, text2);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	
 }

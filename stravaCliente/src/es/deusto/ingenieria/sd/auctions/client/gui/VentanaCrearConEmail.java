@@ -58,83 +58,64 @@ public class VentanaCrearConEmail {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.getContentPane().setForeground(new Color(0, 0, 0));
 		frame.getContentPane().setBackground(new Color(255, 255, 255));
-		frame.setBounds(100, 100, 270, 339);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setBounds(100, 100, 394, 231);
+		frame.setDefaultCloseOperation(0);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Reto");
+		JLabel lblNewLabel_1_2_1 = new JLabel("");
+		lblNewLabel_1_2_1.setBounds(10, 214, 351, 244);
+		frame.getContentPane().add(lblNewLabel_1_2_1);
+		
+		JButton btnPerfil = new JButton("");
+		btnPerfil.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+			}
+		});
+		btnPerfil.setBackground(new Color(255, 255, 255));
+		btnPerfil.setIcon(new ImageIcon("iconos/microperfil.png"));
+		btnPerfil.setBounds(330, 11, 40, 39);
+		frame.getContentPane().add(btnPerfil);
+		
+		JLabel lblNewLabel = new JLabel("STRAVA");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Century Gothic", Font.PLAIN, 20));
-		lblNewLabel.setBounds(10, 11, 238, 40);
+		lblNewLabel.setFont(new Font("Gill Sans Ultra Bold Condensed", Font.PLAIN, 27));
+		lblNewLabel.setBounds(10, 11, 360, 37);
 		frame.getContentPane().add(lblNewLabel);
 		
-		JButton btnNewButton = new JButton("Volver");
-		btnNewButton.setBounds(26, 268, 89, 23);
+		JButton btnNewButton = new JButton("Crear entrenamiento");
+		btnNewButton.setBounds(10, 97, 175, 34);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+			}
+		});
 		frame.getContentPane().add(btnNewButton);
 		
-		JButton btnAnyadir = new JButton("A\u00F1adir");
-		btnAnyadir.addActionListener(new ActionListener() {
+		JButton btnVerEntrenamiento = new JButton("Ver entrenamiento");
+		btnVerEntrenamiento.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnAnyadir.setBounds(138, 268, 89, 23);
-		frame.getContentPane().add(btnAnyadir);
+		btnVerEntrenamiento.setBounds(10, 142, 175, 34);
+		frame.getContentPane().add(btnVerEntrenamiento);
 		
-		JLabel lblNewLabel_1 = new JLabel("Titulo: ");
-		lblNewLabel_1.setBounds(10, 69, 48, 14);
-		frame.getContentPane().add(lblNewLabel_1);
+		JButton btnCrearReto = new JButton("Crear reto");
+		btnCrearReto.setBounds(195, 97, 175, 34);
+		btnCrearReto.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+			}
+		});
+		frame.getContentPane().add(btnCrearReto);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("Descripcion: ");
-		lblNewLabel_1_1.setBounds(10, 99, 80, 14);
-		frame.getContentPane().add(lblNewLabel_1_1);
-		
-		JLabel lblNewLabel_2 = new JLabel("Deporte:");
-		lblNewLabel_2.setBounds(10, 130, 57, 14);
-		frame.getContentPane().add(lblNewLabel_2);
-		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"correr", "bici"}));
-		comboBox.setSelectedIndex(1);
-		comboBox.setBounds(100, 127, 148, 20);
-		frame.getContentPane().add(comboBox);
-		
-		textField = new JTextField();
-		textField.setBounds(100, 66, 148, 20);
-		frame.getContentPane().add(textField);
-		textField.setColumns(10);
-		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(100, 96, 148, 20);
-		frame.getContentPane().add(textField_1);
-		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(100, 158, 148, 20);
-		frame.getContentPane().add(textField_2);
-		
-		JLabel lblNewLabel_1_1_1 = new JLabel("Fecha inicio: ");
-		lblNewLabel_1_1_1.setBounds(10, 161, 80, 14);
-		frame.getContentPane().add(lblNewLabel_1_1_1);
-		
-		JLabel lblNewLabel_1_1_1_1 = new JLabel("Fecha fin: ");
-		lblNewLabel_1_1_1_1.setBounds(10, 189, 80, 14);
-		frame.getContentPane().add(lblNewLabel_1_1_1_1);
-		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(100, 186, 148, 20);
-		frame.getContentPane().add(textField_3);
-		
-		JSpinner spinner = new JSpinner();
-		spinner.setBounds(100, 218, 58, 20);
-		frame.getContentPane().add(spinner);
-		
-		JLabel lblNewLabel_1_1_1_1_1 = new JLabel("Objetivo: ");
-		lblNewLabel_1_1_1_1_1.setBounds(10, 221, 74, 14);
-		frame.getContentPane().add(lblNewLabel_1_1_1_1_1);
+		JButton btnVerRetos = new JButton("Ver retos");
+		btnVerRetos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnVerRetos.setBounds(195, 142, 175, 34);
+		frame.getContentPane().add(btnVerRetos);
 	}
 }

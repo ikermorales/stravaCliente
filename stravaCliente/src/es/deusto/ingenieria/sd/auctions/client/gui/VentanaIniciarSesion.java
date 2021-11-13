@@ -12,6 +12,7 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 import es.deusto.ingenieria.sd.auctions.client.controller.LoginController;
+import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
 
 public class VentanaIniciarSesion extends JFrame {
 
@@ -83,7 +84,7 @@ public class VentanaIniciarSesion extends JFrame {
 		aceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (loginController.login(usuario.getText(), contrasenya.getText())) {
-					new VentanaPrincipal();
+					new VentanaPrincipal(loginController.getUser(usuario.getText(), contrasenya.getText()));
 					dispose();
 				}
 			}

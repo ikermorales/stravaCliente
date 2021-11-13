@@ -10,6 +10,8 @@ import java.util.Date;
 
 import javax.swing.*;
 
+import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
+
 public class VentanaCrearEntrenamiento extends JFrame {
 	
 	private JTextField textField;
@@ -17,7 +19,7 @@ public class VentanaCrearEntrenamiento extends JFrame {
 	private JTextField textField_3;
 	private JTextField textField_1;
 	
-	public VentanaCrearEntrenamiento() {
+	public VentanaCrearEntrenamiento(UserDTO user) {
 		getContentPane().setForeground(new Color(0, 0, 0));
 		getContentPane().setBackground(new Color(255, 255, 255));
 		setBounds(100, 100, 270, 339);
@@ -35,7 +37,7 @@ public class VentanaCrearEntrenamiento extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				new VentanaPrincipal();
+				new VentanaPrincipal(user);
 			}
 		});
 		getContentPane().add(btnNewButton);
