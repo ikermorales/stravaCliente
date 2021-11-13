@@ -18,12 +18,11 @@ public class MainProgram {
 		serviceLocator.setService(args[0], args[1], args[2]);
 				
 		LoginController loginController = new LoginController(serviceLocator);
-		VentanaIniciarSesion ventanaIniciarSesion = new VentanaIniciarSesion(loginController);	
 		BidController bidController = new BidController(serviceLocator);			
+		VentanaIniciarSesion ventanaIniciarSesion = new VentanaIniciarSesion(loginController, bidController);	
 		
 		//Login	
 		
-
 //		List<CategoryDTO> categories = bidWindow.getCategories();
 //
 //		List<ArticleDTO> articles = bidWindow.getArticles(categories.get(0).getName());

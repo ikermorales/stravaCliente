@@ -11,6 +11,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
+import es.deusto.ingenieria.sd.auctions.client.controller.BidController;
 import es.deusto.ingenieria.sd.auctions.client.controller.LoginController;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
 
@@ -34,7 +35,7 @@ public class VentanaIniciarSesion extends JFrame {
 	private JLabel labelDecorativo;
 
 
-	public VentanaIniciarSesion(LoginController loginController) {
+	public VentanaIniciarSesion(LoginController loginController, BidController erController) {
 		setTitle("Inicio");
 		setSize(310,260);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -84,7 +85,8 @@ public class VentanaIniciarSesion extends JFrame {
 		aceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (loginController.login(usuario.getText(), contrasenya.getText())) {
-					new VentanaPrincipal(loginController.getUser(usuario.getText(), contrasenya.getText()));
+					new VentanaPrincipal(loginController.getUser(usuario.getText(), contrasenya.getText()), erController);
+					
 					dispose();
 				}
 			}
@@ -92,7 +94,7 @@ public class VentanaIniciarSesion extends JFrame {
 		crearUsuario = new JButton("Crear Nuevo Usuario");
 		crearUsuario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new VentanaCrearUsuarioMetodo(loginController);
+				new VentanaCrearUsuarioMetodo(loginController, erController);
 				dispose();
 			}
 		});

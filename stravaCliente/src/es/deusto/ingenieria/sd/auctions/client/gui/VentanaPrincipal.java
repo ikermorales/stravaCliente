@@ -6,12 +6,14 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+import es.deusto.ingenieria.sd.auctions.client.controller.BidController;
 import es.deusto.ingenieria.sd.auctions.client.controller.LoginController;
+import es.deusto.ingenieria.sd.auctions.server.data.dto.EntrenamientoDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
 
 public class VentanaPrincipal extends JFrame {	
 	
-	public VentanaPrincipal(UserDTO user) {
+	public VentanaPrincipal(UserDTO user, BidController erController) {
 		
 		getContentPane().setBackground(new Color(255, 255, 255));
 		setBounds(100, 100, 394, 231);
@@ -25,7 +27,7 @@ public class VentanaPrincipal extends JFrame {
 		JButton btnPerfil = new JButton("");
 		btnPerfil.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new VentanaPerfil(user);
+				new VentanaPerfil(user, erController);
 				dispose();
 			}
 		});
@@ -44,7 +46,7 @@ public class VentanaPrincipal extends JFrame {
 		btnNewButton.setBounds(10, 97, 175, 34);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new VentanaCrearEntrenamiento(user);
+				new VentanaCrearEntrenamiento(user, erController);
 				dispose();
 			}
 		});
@@ -53,6 +55,7 @@ public class VentanaPrincipal extends JFrame {
 		JButton btnVerEntrenamiento = new JButton("Ver entrenamiento");
 		btnVerEntrenamiento.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				new VentanaVerEntrenamientos(erController.getEntrenamientos("bici"), erController.getEntrenamientos("correr"));
 			}
 		});
 		btnVerEntrenamiento.setBounds(10, 142, 175, 34);
@@ -62,7 +65,7 @@ public class VentanaPrincipal extends JFrame {
 		btnCrearReto.setBounds(195, 97, 175, 34);
 		btnCrearReto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new VentanaCrearReto(user);
+				new VentanaCrearReto(user, erController);
 				dispose();
 			}
 		});

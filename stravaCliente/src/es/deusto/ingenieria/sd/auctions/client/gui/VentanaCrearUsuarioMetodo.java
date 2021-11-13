@@ -11,11 +11,12 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
+import es.deusto.ingenieria.sd.auctions.client.controller.BidController;
 import es.deusto.ingenieria.sd.auctions.client.controller.LoginController;
 
 public class VentanaCrearUsuarioMetodo extends JFrame {
 
-	public VentanaCrearUsuarioMetodo(LoginController loginController){
+	public VentanaCrearUsuarioMetodo(LoginController loginController, BidController erController){
 		getContentPane().setBackground(new Color(255, 255, 255));
 		setBounds(100, 100, 316, 279);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -28,7 +29,7 @@ public class VentanaCrearUsuarioMetodo extends JFrame {
 		JButton btnNewButton = new JButton("Cancelar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new VentanaIniciarSesion(loginController);
+				new VentanaIniciarSesion(loginController, erController);
 				dispose();
 			}
 		});
@@ -44,7 +45,7 @@ public class VentanaCrearUsuarioMetodo extends JFrame {
 		JButton btnNewButton_1 = new JButton("");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new VentanaCrearUsuarioEmail(loginController);
+				new VentanaCrearUsuarioEmail(loginController, erController);
 				dispose();
 			}
 		});
@@ -55,7 +56,7 @@ public class VentanaCrearUsuarioMetodo extends JFrame {
 		JButton btnNewButton_1_1 = new JButton("");
 		btnNewButton_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new VentanaCrearUsuarioConGoogle(loginController);
+				new VentanaCrearUsuarioConGoogle(loginController, erController);
 				dispose();
 			}
 		});
@@ -66,7 +67,7 @@ public class VentanaCrearUsuarioMetodo extends JFrame {
 		JButton btnNewButton_1_1_1 = new JButton("");
 		btnNewButton_1_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new VentanaCrearUsuarioFacebook(loginController);
+				new VentanaCrearUsuarioFacebook(loginController, erController);
 				dispose();
 			}
 		});

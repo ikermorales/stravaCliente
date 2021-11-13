@@ -8,6 +8,7 @@ import java.util.logging.Level;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 
+import es.deusto.ingenieria.sd.auctions.client.controller.BidController;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
 
 public class VentanaPerfil extends JFrame{
@@ -19,7 +20,7 @@ public class VentanaPerfil extends JFrame{
 
 	
 	
-	public VentanaPerfil(UserDTO user) {
+	public VentanaPerfil(UserDTO user, BidController erController) {
 		getContentPane().setBackground(new Color(255, 255, 255));
 		setBounds(100, 100, 293, 449);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -120,7 +121,7 @@ public class VentanaPerfil extends JFrame{
 		JButton btnNewButton = new JButton("Volver");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new VentanaPrincipal(user);
+				new VentanaPrincipal(user, erController);
 				dispose();
 			}
 		});
@@ -158,6 +159,10 @@ public class VentanaPerfil extends JFrame{
 		btnEditar.setBounds(159, 372, 89, 23);
 		getContentPane().add(btnEditar);
 
+		
+		
+		
+		
 		setVisible(true);
 	}
 }
