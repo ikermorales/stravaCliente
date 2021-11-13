@@ -12,9 +12,9 @@ public class MainProgram {
 	public static void main(String[] args) {	
 		ServiceLocator serviceLocator = new ServiceLocator();
 		
-		args[0] = "127.0.0.1"; // RMIRegistry IP
-		args[1] = "1099"; // RMIRegistry Port
-		args[2] = "LoginController";// Service Name
+//		args[0] = "127.0.0.1"; // RMIRegistry IP
+//		args[1] = "1099"; // RMIRegistry Port
+//		args[2] = "strava"; // Service Name
 		serviceLocator.setService(args[0], args[1], args[2]);
 				
 		LoginController loginController = new LoginController(serviceLocator);
@@ -30,6 +30,6 @@ public class MainProgram {
 //
 //		articles = bidWindow.getArticles(categories.get(0).getName());
 		
-		loginController.logout();
+//		loginController.logout();
 	}
 }

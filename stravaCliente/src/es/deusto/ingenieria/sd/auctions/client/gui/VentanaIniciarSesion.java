@@ -82,7 +82,6 @@ public class VentanaIniciarSesion extends JFrame {
 		aceptar = new JButton("Iniciar Sesión");
 		aceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				loginController.login(getWarningString(), getName());
 				if (loginController.login(usuario.getText(), contrasenya.getText())) {
 					new VentanaPrincipal();
 					dispose();
