@@ -12,15 +12,13 @@ public class MainProgram {
 	public static void main(String[] args) {	
 		ServiceLocator serviceLocator = new ServiceLocator();
 		
-//		args[0] = "127.0.0.1"; // RMIRegistry IP
-//		args[1] = "1099"; // RMIRegistry Port
-//		args[2] = "BidController";// Service Name
-//		serviceLocator.setService(args[0], args[1], args[2]);
-		
-		serviceLocator.setService("127.0.0.1", "1099", "BidController");
-		
+		args[0] = "127.0.0.1"; // RMIRegistry IP
+		args[1] = "1099"; // RMIRegistry Port
+		args[2] = "LoginController";// Service Name
+		serviceLocator.setService(args[0], args[1], args[2]);
+				
 		LoginController loginController = new LoginController(serviceLocator);
-		VentanaIniciarSesion ventanaIniciarSesion = new VentanaIniciarSesion(loginController);			
+		VentanaIniciarSesion ventanaIniciarSesion = new VentanaIniciarSesion(loginController);	
 		BidController bidController = new BidController(serviceLocator);			
 		
 		//Login	
