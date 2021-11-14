@@ -93,6 +93,7 @@ public class VentanaIniciarSesion extends JFrame {
 		});
 		crearUsuario = new JButton("Crear Nuevo Usuario");
 		crearUsuario.addActionListener(new ActionListener() {
+			
 			public void actionPerformed(ActionEvent e) {
 				new VentanaCrearUsuarioMetodo(loginController, erController);
 				dispose();

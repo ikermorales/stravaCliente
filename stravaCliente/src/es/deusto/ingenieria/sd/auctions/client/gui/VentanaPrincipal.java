@@ -55,7 +55,8 @@ public class VentanaPrincipal extends JFrame {
 		JButton btnVerEntrenamiento = new JButton("Ver entrenamiento");
 		btnVerEntrenamiento.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new VentanaVerEntrenamientos(erController.getEntrenamientos("bici"), erController.getEntrenamientos("correr"));
+				new VentanaVerEntrenamientos(user, erController, erController.getEntrenamientos("bici"), erController.getEntrenamientos("correr"));
+				dispose();
 			}
 		});
 		btnVerEntrenamiento.setBounds(10, 142, 175, 34);
@@ -74,6 +75,8 @@ public class VentanaPrincipal extends JFrame {
 		JButton btnVerRetos = new JButton("Ver retos");
 		btnVerRetos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				new VentanaVerRetos(user, erController, erController.getRetos("bici"), erController.getRetos("correr"));
+				dispose();
 			}
 		});
 		btnVerRetos.setBounds(195, 142, 175, 34);
