@@ -12,7 +12,7 @@ import java.util.Date;
 
 import javax.swing.*;
 
-import es.deusto.ingenieria.sd.auctions.client.controller.BidController;
+import es.deusto.ingenieria.sd.auctions.client.controller.ErController;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.EntrenamientoDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
 
@@ -25,7 +25,7 @@ public class VentanaCrearEntrenamiento extends JFrame {
 	private JSpinner spinner;
 	private JSpinner spinner_1;
 	
-	public VentanaCrearEntrenamiento(UserDTO user, BidController erEntrenamientos) {
+	public VentanaCrearEntrenamiento(UserDTO user, ErController erEntrenamientos) {
 		
 		getContentPane().setBackground(Color.WHITE);
 		setBounds(100, 100, 305, 372);

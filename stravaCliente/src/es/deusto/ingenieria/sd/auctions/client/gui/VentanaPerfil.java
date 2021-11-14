@@ -8,7 +8,7 @@ import java.util.logging.Level;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 
-import es.deusto.ingenieria.sd.auctions.client.controller.BidController;
+import es.deusto.ingenieria.sd.auctions.client.controller.ErController;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
 
 public class VentanaPerfil extends JFrame{
@@ -20,7 +20,7 @@ public class VentanaPerfil extends JFrame{
 
 	
 	
-	public VentanaPerfil(UserDTO user, BidController erController) {
+	public VentanaPerfil(UserDTO user, ErController erController) {
 		
 		getContentPane().setBackground(new Color(255, 255, 255));
 		setBounds(100, 100, 293, 287);

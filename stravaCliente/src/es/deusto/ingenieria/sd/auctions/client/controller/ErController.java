@@ -10,12 +10,12 @@ import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
 
 //This class implements Controller pattern.
-public class BidController {
+public class ErController {
 
 	//Reference to the Service Locator
 	protected ServiceLocator serviceLocator;
 
-	public BidController(ServiceLocator serviceLocator) {
+	public ErController(ServiceLocator serviceLocator) {
 		this.serviceLocator = serviceLocator; 
 	}
 

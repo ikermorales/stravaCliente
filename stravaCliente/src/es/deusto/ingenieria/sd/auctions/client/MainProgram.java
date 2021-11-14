@@ -2,7 +2,7 @@ package es.deusto.ingenieria.sd.auctions.client;
 
 import java.util.List;
 
-import es.deusto.ingenieria.sd.auctions.client.controller.BidController;
+import es.deusto.ingenieria.sd.auctions.client.controller.ErController;
 import es.deusto.ingenieria.sd.auctions.client.controller.LoginController;
 import es.deusto.ingenieria.sd.auctions.client.gui.VentanaIniciarSesion;
 import es.deusto.ingenieria.sd.auctions.client.remote.ServiceLocator;
@@ -18,7 +18,7 @@ public class MainProgram {
 		serviceLocator.setService(args[0], args[1], args[2]);
 				
 		LoginController loginController = new LoginController(serviceLocator);
-		BidController bidController = new BidController(serviceLocator);			
+		ErController bidController = new ErController(serviceLocator);			
 		VentanaIniciarSesion ventanaIniciarSesion = new VentanaIniciarSesion(loginController, bidController);	
 		
 		//Login	

@@ -13,7 +13,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-import es.deusto.ingenieria.sd.auctions.client.controller.BidController;
+import es.deusto.ingenieria.sd.auctions.client.controller.ErController;
 import es.deusto.ingenieria.sd.auctions.client.controller.LoginController;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.EntrenamientoDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoDTO;
@@ -24,7 +24,7 @@ public class VentanaCrearUsuarioConGoogle extends JFrame {
 	private JTextField textNickName;
 	private JTextField textEmail;
 	
-	public VentanaCrearUsuarioConGoogle(LoginController loginController, BidController erController) {
+	public VentanaCrearUsuarioConGoogle(LoginController loginController, ErController erController) {
 		getContentPane().setBackground(new Color(255, 255, 255));
 		setBounds(100, 100, 290, 279);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);

@@ -6,14 +6,14 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-import es.deusto.ingenieria.sd.auctions.client.controller.BidController;
+import es.deusto.ingenieria.sd.auctions.client.controller.ErController;
 import es.deusto.ingenieria.sd.auctions.client.controller.LoginController;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.EntrenamientoDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
 
 public class VentanaPrincipal extends JFrame {	
 	
-	public VentanaPrincipal(UserDTO user, BidController erController) {
+	public VentanaPrincipal(UserDTO user, ErController erController) {
 		
 		getContentPane().setBackground(new Color(255, 255, 255));
 		setBounds(100, 100, 394, 231);

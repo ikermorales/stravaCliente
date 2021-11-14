@@ -13,7 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-import es.deusto.ingenieria.sd.auctions.client.controller.BidController;
+import es.deusto.ingenieria.sd.auctions.client.controller.ErController;
 import es.deusto.ingenieria.sd.auctions.client.controller.LoginController;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.EntrenamientoDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoDTO;
@@ -25,7 +25,7 @@ public class VentanaCrearUsuarioEmail extends JFrame {
 	private JTextField textEmail;
 	private JTextField textContrasenya;
 	
-	public VentanaCrearUsuarioEmail(LoginController loginController, BidController erController) {
+	public VentanaCrearUsuarioEmail(LoginController loginController, ErController erController) {
 		getContentPane().setBackground(new Color(255, 255, 255));
 		setBounds(100, 100, 290, 302);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);

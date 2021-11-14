@@ -11,12 +11,12 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
-import es.deusto.ingenieria.sd.auctions.client.controller.BidController;
+import es.deusto.ingenieria.sd.auctions.client.controller.ErController;
 import es.deusto.ingenieria.sd.auctions.client.controller.LoginController;
 
 public class VentanaCrearUsuarioMetodo extends JFrame {
 
-	public VentanaCrearUsuarioMetodo(LoginController loginController, BidController erController){
+	public VentanaCrearUsuarioMetodo(LoginController loginController, ErController erController){
 		getContentPane().setBackground(new Color(255, 255, 255));
 		setBounds(100, 100, 316, 279);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);

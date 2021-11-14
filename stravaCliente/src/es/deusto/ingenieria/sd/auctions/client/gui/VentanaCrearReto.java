@@ -10,7 +10,7 @@ import java.rmi.RemoteException;
 
 import javax.swing.*;
 
-import es.deusto.ingenieria.sd.auctions.client.controller.BidController;
+import es.deusto.ingenieria.sd.auctions.client.controller.ErController;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
 
@@ -23,7 +23,7 @@ public class VentanaCrearReto extends JFrame {
 	private JComboBox comboBox;
 	private JSpinner spinner;
 
-	public VentanaCrearReto(UserDTO user, BidController erController) {
+	public VentanaCrearReto(UserDTO user, ErController erController) {
 		getContentPane().setForeground(new Color(0, 0, 0));
 		getContentPane().setBackground(new Color(255, 255, 255));
 		setBounds(100, 100, 270, 339);

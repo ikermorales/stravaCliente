@@ -16,7 +16,7 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
-import es.deusto.ingenieria.sd.auctions.client.controller.BidController;
+import es.deusto.ingenieria.sd.auctions.client.controller.ErController;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.EntrenamientoDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
@@ -27,7 +27,7 @@ public class VentanaVerRetos extends JFrame {
 	private JComboBox comboBox;
 	private RetoDTO r = new RetoDTO();
 
-	public VentanaVerRetos(UserDTO user, BidController erController, List<RetoDTO> retos, List<RetoDTO> retos2) {
+	public VentanaVerRetos(UserDTO user, ErController erController, List<RetoDTO> retos, List<RetoDTO> retos2) {
 
 		getContentPane().setBackground(new Color(255, 255, 255));
 		setBounds(100, 100, 266, 399);

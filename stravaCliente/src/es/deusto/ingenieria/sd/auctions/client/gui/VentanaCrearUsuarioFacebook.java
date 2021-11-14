@@ -12,7 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-import es.deusto.ingenieria.sd.auctions.client.controller.BidController;
+import es.deusto.ingenieria.sd.auctions.client.controller.ErController;
 import es.deusto.ingenieria.sd.auctions.client.controller.LoginController;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.EntrenamientoDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoDTO;
@@ -25,7 +25,7 @@ public class VentanaCrearUsuarioFacebook extends JFrame{
 	private JTextField textNickName;
 	private JTextField textEmail;
 
-	public VentanaCrearUsuarioFacebook(LoginController loginController, BidController erController) {
+	public VentanaCrearUsuarioFacebook(LoginController loginController, ErController erController) {
 		getContentPane().setBackground(new Color(255, 255, 255));
 		setBounds(100, 100, 290, 279);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);

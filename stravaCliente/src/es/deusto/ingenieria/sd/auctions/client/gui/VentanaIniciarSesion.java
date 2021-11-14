@@ -11,7 +11,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
-import es.deusto.ingenieria.sd.auctions.client.controller.BidController;
+import es.deusto.ingenieria.sd.auctions.client.controller.ErController;
 import es.deusto.ingenieria.sd.auctions.client.controller.LoginController;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
 
@@ -35,7 +35,7 @@ public class VentanaIniciarSesion extends JFrame {
 	private JLabel labelDecorativo;
 
 
-	public VentanaIniciarSesion(LoginController loginController, BidController erController) {
+	public VentanaIniciarSesion(LoginController loginController, ErController erController) {
 		setTitle("Inicio");
 		setSize(310,260);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);

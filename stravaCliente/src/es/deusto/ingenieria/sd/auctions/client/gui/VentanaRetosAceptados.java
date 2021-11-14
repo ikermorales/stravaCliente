@@ -17,13 +17,13 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 
-import es.deusto.ingenieria.sd.auctions.client.controller.BidController;
+import es.deusto.ingenieria.sd.auctions.client.controller.ErController;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
 
 public class VentanaRetosAceptados extends JFrame{
 	
-	public VentanaRetosAceptados(UserDTO user, BidController erController) {
+	public VentanaRetosAceptados(UserDTO user, ErController erController) {
 		
 		getContentPane().setBackground(Color.WHITE);
 		setBounds(100, 100, 281, 539);
