@@ -79,7 +79,8 @@ public class VentanaPerfil extends JFrame{
 			}
 		});
 		
-		
+		textField_2.setText(user.getNickname());
+		textField_1.setText(user.getEmail());
 		setVisible(true);
 	}
 }

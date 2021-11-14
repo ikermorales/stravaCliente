@@ -99,7 +99,6 @@ public class VentanaIniciarSesion extends JFrame {
 				dispose();
 			}
 		});
-		aceptar.setEnabled(false);
 		crearUsuario.setEnabled(true);
 		crearUsuario.setForeground(Color.BLACK);
 		aceptar.setForeground(Color.BLACK);
