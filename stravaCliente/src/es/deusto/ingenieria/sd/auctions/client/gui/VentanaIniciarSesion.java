@@ -84,9 +84,9 @@ public class VentanaIniciarSesion extends JFrame {
 		aceptar = new JButton("Iniciar Sesión");
 		aceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loginController.login(usuario.getText(), contrasenya.getText())) {
-					new VentanaPrincipal(loginController.getUser(usuario.getText(), contrasenya.getText()), erController);
-					
+				String contra = String.valueOf(contrasenya.getPassword());
+				if (loginController.login(usuario.getText(), contra, "")) {
+					new VentanaPrincipal(loginController.getUser(usuario.getText(),contra), erController);
 					dispose();
 				}
 			}
@@ -109,43 +109,8 @@ public class VentanaIniciarSesion extends JFrame {
 		panelBotonera.add(crearUsuario);
 		panelBotonera.setBackground(new Color(0,0,0));
 		panelDatos.add(panelBotonera);
-		
-		usuario.getDocument().addDocumentListener(new DocumentListener() {
-			public void changedUpdate(DocumentEvent e) {
-				changed();
-			}
-			public void removeUpdate(DocumentEvent e) {
-				changed();
-			}
-			public void insertUpdate(DocumentEvent e) {
-				changed();
-			}
-		});
-
-		contrasenya.getDocument().addDocumentListener(new DocumentListener() {
-			public void changedUpdate(DocumentEvent e) {
-				changed();
-			}
-			public void removeUpdate(DocumentEvent e) {
-				changed();
-			}
-			public void insertUpdate(DocumentEvent e) {
-				changed();
-			}
-		});		
-
 
 		setVisible(true);		
-	}
-
-
-	public void changed() {
-		if (contrasenya.getText().equals("") || contrasenya.getText().contains(" ") || usuario.getText().equals("") || usuario.getText().contains(" ")){
-			aceptar.setEnabled(false);
-		}
-		else {
-			aceptar.setEnabled(true);
-		}
 	}
 		
 		

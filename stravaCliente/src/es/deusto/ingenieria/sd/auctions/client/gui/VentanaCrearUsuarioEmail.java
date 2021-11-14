@@ -1,9 +1,11 @@
 package es.deusto.ingenieria.sd.auctions.client.gui;
 
-import java.awt.Color;
+import java.awt.Color; 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -13,6 +15,9 @@ import javax.swing.SwingConstants;
 
 import es.deusto.ingenieria.sd.auctions.client.controller.BidController;
 import es.deusto.ingenieria.sd.auctions.client.controller.LoginController;
+import es.deusto.ingenieria.sd.auctions.server.data.dto.EntrenamientoDTO;
+import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoDTO;
+import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
 
 public class VentanaCrearUsuarioEmail extends JFrame {
 
@@ -79,6 +84,19 @@ public class VentanaCrearUsuarioEmail extends JFrame {
 		JButton btnCrear = new JButton("Crear");
 		btnCrear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(loginController.login(textEmail.getText(), textContrasenya.getText(), textNickName.getText())) {
+					
+					UserDTO u = new UserDTO();
+					u.setEmail(textEmail.getText());
+					u.setNickname(textNickName.getText());
+					List<EntrenamientoDTO> edto = new ArrayList<>();
+					u.setEntrenamientos(edto);
+					List<RetoDTO> rdto = new ArrayList<>();
+					u.setRetosAceptados(rdto);
+					
+					new VentanaPrincipal(u, erController);
+				}
+				
 			}
 		});
 		btnCrear.setBounds(146, 214, 106, 23);

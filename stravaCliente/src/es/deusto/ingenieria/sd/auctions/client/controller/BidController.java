@@ -11,10 +11,10 @@ import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
 
 //This class implements Controller pattern.
 public class BidController {
-	
+
 	//Reference to the Service Locator
 	protected ServiceLocator serviceLocator;
-	
+
 	public BidController(ServiceLocator serviceLocator) {
 		this.serviceLocator = serviceLocator; 
 	}
@@ -27,7 +27,7 @@ public class BidController {
 			return null;
 		}
 	}
-	
+
 	public void anyadirRetoARetos(RetoDTO reto, UserDTO user) throws RemoteException {	
 		this.serviceLocator.getService().anyadirRetoARetos(reto, user);
 	}
@@ -35,5 +35,12 @@ public class BidController {
 	public void quitarRetoARetos(String tituloReto) throws RemoteException {
 		this.serviceLocator.getService().quitarRetoARetos(tituloReto);		
 	}
+
+	public float calcularEstado(RetoDTO reto, UserDTO user)throws RemoteException {
+
+		return this.serviceLocator.getService().calcularEstado(reto, user);
+
+	}
+
 
 }

@@ -54,8 +54,9 @@ public class VentanaCrearReto extends JFrame {
 				dto.setDeporte((String) comboBox.getSelectedItem());
 				dto.setTitulo(textField.getText());
 				dto.setDescripcion(textField_1.getText());
-				dto.setFechaInicio(textField_2.getText());
 				dto.setFechaFin(textField_3.getText());
+				dto.setFechaInicio(textField_2.getText());
+				
 				try {
 					int a = (int) spinner.getValue();
 					long b = (long) a;
@@ -71,7 +72,6 @@ public class VentanaCrearReto extends JFrame {
 				}
 				
 				dispose();
-				JOptionPane.showMessageDialog(null, "Reto añadido con exito");
 				new VentanaPrincipal(user, erController);
 			}
 		});

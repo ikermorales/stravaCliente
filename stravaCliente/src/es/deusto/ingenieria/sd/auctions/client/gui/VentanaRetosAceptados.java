@@ -3,8 +3,10 @@ package es.deusto.ingenieria.sd.auctions.client.gui;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.rmi.RemoteException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -54,11 +56,14 @@ public class VentanaRetosAceptados extends JFrame{
 			panel_1.add(new JLabel("FechaFin: " + reto.getFechaFin()));
 			panel_1.add(new JLabel("Creador: " + reto.getCreador().getNickname()));
 			
-			JButton boton = new JButton("Calcular %");
+			JButton boton = new JButton("Calcular");
 			boton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					JOptionPane.showMessageDialog(null, "9");
-					
+					try {
+						JOptionPane.showMessageDialog(null, erController.calcularEstado(reto, user) +"%");
+					} catch (HeadlessException | RemoteException e1) {
+						e1.printStackTrace();
+					}
 				}
 			});
 			panel_1.add(boton);

@@ -3,6 +3,7 @@ package es.deusto.ingenieria.sd.auctions.client.controller;
 import java.rmi.RemoteException;  
 
 import es.deusto.ingenieria.sd.auctions.client.remote.ServiceLocator;
+import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
 
 
@@ -17,9 +18,9 @@ public class LoginController {
 		this.serviceLocator = serviceLocator;
 	}
 	
-	public boolean login(String email, String password) {
+	public boolean login(String email, String password, String nickName) {
 		try {
-			this.token = this.serviceLocator.getService().login(email, password);			
+			this.token = this.serviceLocator.getService().login(email, password, nickName);			
 			return true;
 		} catch (RemoteException e) {
 			System.out.println("# Error during login: " + e);
@@ -50,6 +51,8 @@ public class LoginController {
 			return null;
 		}
 	}
+	
+
 
 	
 }
