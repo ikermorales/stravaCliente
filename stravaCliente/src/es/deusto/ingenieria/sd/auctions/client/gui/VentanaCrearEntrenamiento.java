@@ -1,11 +1,13 @@
 package es.deusto.ingenieria.sd.auctions.client.gui;
 
 import java.awt.Color;
+
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.swing.*;
@@ -51,6 +53,12 @@ public class VentanaCrearEntrenamiento extends JFrame {
 		btnCrear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+				ArrayList<EntrenamientoDTO> entrenosNuevos = new ArrayList<>();
+				
+				for (EntrenamientoDTO entrenamientoDTO : user.getEntrenamientos()) {
+					entrenosNuevos.add(entrenamientoDTO);
+				}
+				
 				EntrenamientoDTO dto = new EntrenamientoDTO();
 				
 				dto.setDeporte((String) comboBox.getSelectedItem());
@@ -69,10 +77,10 @@ public class VentanaCrearEntrenamiento extends JFrame {
 					
 				}
 				
-				erEntrenamientos.getEntrenamientos((String) comboBox.getSelectedItem()).add(dto);
-				for (EntrenamientoDTO l : erEntrenamientos.getEntrenamientos("bici")) {
-					System.out.println(l);
-				}
+				entrenosNuevos.add(dto);
+				user.setEntrenamientos(entrenosNuevos);
+				
+				
 				dispose();
 				new VentanaPrincipal(user, erEntrenamientos);
 				

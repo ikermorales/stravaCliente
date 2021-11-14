@@ -55,7 +55,7 @@ public class VentanaPrincipal extends JFrame {
 		JButton btnVerEntrenamiento = new JButton("Ver entrenamiento");
 		btnVerEntrenamiento.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new VentanaVerEntrenamientos(user, erController, erController.getEntrenamientos("bici"), erController.getEntrenamientos("correr"));
+				new VentanaVerEntrenamientos(user, erController);
 				dispose();
 			}
 		});

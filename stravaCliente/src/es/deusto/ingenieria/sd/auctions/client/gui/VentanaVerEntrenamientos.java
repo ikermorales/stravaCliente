@@ -31,7 +31,7 @@ public class VentanaVerEntrenamientos extends JFrame {
 	
 	JTable table_1;
 
-	public VentanaVerEntrenamientos(UserDTO user, BidController erController,List<EntrenamientoDTO> entrenamientos, List<EntrenamientoDTO> entrenamientos2) {
+	public VentanaVerEntrenamientos(UserDTO user, BidController erController) {
 				
 		getContentPane().setBackground(Color.WHITE);
 		setBounds(100, 100, 454, 369);
@@ -77,7 +77,7 @@ public class VentanaVerEntrenamientos extends JFrame {
 		dtm.addColumn("Distancia");
 		dtm.addColumn("F.I");
 		dtm.addColumn("F.F");
-		dtm.setNumRows(entrenamientos.size());
+		dtm.setNumRows(user.getEntrenamientos().size());
 
 		String[] arrayTitulos = new String[5];
 		arrayTitulos[0] = "Titulo";
@@ -87,7 +87,7 @@ public class VentanaVerEntrenamientos extends JFrame {
 		arrayTitulos[4] = "F.F";
 		dtm.addRow(arrayTitulos);					
 		
-		for (EntrenamientoDTO entrenamiento : entrenamientos) {
+		for (EntrenamientoDTO entrenamiento : user.getEntrenamientos()) {
 			String[] arrayInfo = new String[5];
 			arrayInfo[0] = entrenamiento.getTitulo();
 			arrayInfo[1] = entrenamiento.getDistancia()+"";
@@ -114,7 +114,7 @@ public class VentanaVerEntrenamientos extends JFrame {
 				dtm.addColumn("F.I");
 				dtm.addColumn("F.F");
 				table_1.setModel(dtm);
-				dtm.setNumRows(entrenamientos.size());
+				dtm.setNumRows(user.getEntrenamientosD("bici").size());
 				String[] arrayTitulos = new String[5];
 				arrayTitulos[0] = "Titulo";
 				arrayTitulos[1] = "Distancia";
@@ -126,7 +126,7 @@ public class VentanaVerEntrenamientos extends JFrame {
 				
 				if(((String) comboBox.getSelectedItem()).matches("bici")) {
 					
-					for (EntrenamientoDTO entrenamiento : entrenamientos) {
+					for (EntrenamientoDTO entrenamiento : user.getEntrenamientosD("bici")) {
 						String[] arrayInfo = new String[5];
 						arrayInfo[0] = entrenamiento.getTitulo();
 						arrayInfo[1] = entrenamiento.getDistancia()+"";
@@ -138,7 +138,7 @@ public class VentanaVerEntrenamientos extends JFrame {
 					}
 				} else if(((String) comboBox.getSelectedItem()).matches("correr")) {
 	
-					for (EntrenamientoDTO entrenamiento : entrenamientos2) {
+					for (EntrenamientoDTO entrenamiento : user.getEntrenamientosD("correr")) {
 						String[] arrayInfo = new String[5];
 						arrayInfo[0] = entrenamiento.getTitulo();
 						arrayInfo[1] = entrenamiento.getDistancia()+"";

@@ -7,6 +7,7 @@ import java.util.List;
 import es.deusto.ingenieria.sd.auctions.client.remote.ServiceLocator;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.EntrenamientoDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoDTO;
+import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
 
 //This class implements Controller pattern.
 public class BidController {
@@ -27,13 +28,13 @@ public class BidController {
 		}
 	}
 
-	public ArrayList<EntrenamientoDTO> getEntrenamientos(String deporte) {
-		try {
-			return this.serviceLocator.getService().getEntrenamientos(deporte);
-		} catch (RemoteException e) {
-			System.out.println("# Error getting articles of a category: " + e);
-			return null;
-		}
-	}
+//	public ArrayList<EntrenamientoDTO> getEntrenamientos(String deporte, UserDTO user) {
+//		try {
+//			return this.serviceLocator.getService().getEntrenamientos(deporte, user);
+//		} catch (RemoteException e) {
+//			System.out.println("# Error getting articles of a category: " + e);
+//			return null;
+//		}
+//	}
 
 }
