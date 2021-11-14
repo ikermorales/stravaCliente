@@ -1,6 +1,6 @@
 package es.deusto.ingenieria.sd.auctions.client.controller;
 
-import java.rmi.RemoteException;
+import java.rmi.RemoteException; 
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +13,7 @@ import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
 public class BidController {
 	
 	//Reference to the Service Locator
-	private ServiceLocator serviceLocator;
+	protected ServiceLocator serviceLocator;
 	
 	public BidController(ServiceLocator serviceLocator) {
 		this.serviceLocator = serviceLocator; 
@@ -27,14 +27,13 @@ public class BidController {
 			return null;
 		}
 	}
+	
+	public void anyadirRetoARetos(RetoDTO reto, UserDTO user) throws RemoteException {	
+		this.serviceLocator.getService().anyadirRetoARetos(reto, user);
+	}
 
-//	public ArrayList<EntrenamientoDTO> getEntrenamientos(String deporte, UserDTO user) {
-//		try {
-//			return this.serviceLocator.getService().getEntrenamientos(deporte, user);
-//		} catch (RemoteException e) {
-//			System.out.println("# Error getting articles of a category: " + e);
-//			return null;
-//		}
-//	}
+	public void quitarRetoARetos(String tituloReto) throws RemoteException {
+		this.serviceLocator.getService().quitarRetoARetos(tituloReto);		
+	}
 
 }

@@ -6,7 +6,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.swing.*;
@@ -23,6 +25,7 @@ public class VentanaVerRetos extends JFrame {
 
 	private ArrayList<RetoDTO> listaActual = new ArrayList<>();
 	private JComboBox comboBox;
+	private RetoDTO r = new RetoDTO();
 
 	public VentanaVerRetos(UserDTO user, BidController erController, List<RetoDTO> retos, List<RetoDTO> retos2) {
 
@@ -79,9 +82,35 @@ public class VentanaVerRetos extends JFrame {
 		JButton btnAadir = new JButton("A\u00F1adir");
 		btnAadir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
+				List<RetoDTO> retosArray = new ArrayList<>();
+				
+				for (RetoDTO retoDTO : 	user.getRetosAceptados()) {
+					retosArray.add(retoDTO);
+				}
+						
+				retosArray.add(r);
+				
+				user.setRetosAceptados(retosArray);
+				
+				List<RetoDTO> nuevoRetosArray = new ArrayList<>();
+				for (RetoDTO retoDTO : erController.getRetos("bici")) {
+					if(!retoDTO.getTitulo().matches(r.getTitulo())) {
+						nuevoRetosArray.add(retoDTO);
+					}
+				}			
+				
+				try {
+					erController.quitarRetoARetos(r.getTitulo());
+				} catch (RemoteException e1) {
+					e1.printStackTrace();
+				}
+				
+				dispose();
+				JOptionPane.showMessageDialog(null, "Reto añadido con éxtio");
+				new VentanaPrincipal(user, erController);
 			}
-		});
+		});		
+		
 		btnAadir.setBounds(140, 330, 89, 23);
 		getContentPane().add(btnAadir);
 
@@ -115,6 +144,14 @@ public class VentanaVerRetos extends JFrame {
 				panel.add(new JLabel("Fecha fin: " + reto.getFechaFin()));
 				panel.add(new JLabel("Objetivo: " + reto.getObjetivo()));
 				panel.add(new JLabel("Creador: " + reto.getCreador().getNickname()));
+				
+				r.setCreador(user);
+				r.setDeporte(reto.getDeporte());
+				r.setDescripcion(reto.getDescripcion());
+				r.setFechaFin(reto.getFechaFin());
+				r.setFechaInicio(reto.getFechaInicio());
+				r.setObjetivo(reto.getObjetivo());
+				r.setTitulo(reto.getTitulo());
 
 				repaint();
 				validate();
@@ -178,7 +215,13 @@ public class VentanaVerRetos extends JFrame {
 						panel.add(new JLabel("Objetivo: " + reto.getObjetivo()));
 						panel.add(new JLabel("Creador: " + reto.getCreador().getNickname()));
 
-						
+						r.setCreador(user);
+						r.setDeporte(reto.getDeporte());
+						r.setDescripcion(reto.getDescripcion());
+						r.setFechaFin(reto.getFechaFin());
+						r.setFechaInicio(reto.getFechaInicio());
+						r.setObjetivo(reto.getObjetivo());
+						r.setTitulo(reto.getTitulo());
 						
 
 						repaint();
@@ -247,6 +290,14 @@ public class VentanaVerRetos extends JFrame {
 						panel.add(new JLabel("Fecha fin: " + reto.getFechaFin()));
 						panel.add(new JLabel("Objetivo: " + reto.getObjetivo()));
 						panel.add(new JLabel("Creador: " + reto.getCreador().getNickname()));
+						
+						r.setCreador(user);
+						r.setDeporte(reto.getDeporte());
+						r.setDescripcion(reto.getDescripcion());
+						r.setFechaFin(reto.getFechaFin());
+						r.setFechaInicio(reto.getFechaInicio());
+						r.setObjetivo(reto.getObjetivo());
+						r.setTitulo(reto.getTitulo());
 
 						repaint();
 						validate();

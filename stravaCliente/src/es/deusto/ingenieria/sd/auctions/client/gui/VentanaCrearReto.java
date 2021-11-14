@@ -6,6 +6,7 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.rmi.RemoteException;
 
 import javax.swing.*;
 
@@ -55,9 +56,23 @@ public class VentanaCrearReto extends JFrame {
 				dto.setDescripcion(textField_1.getText());
 				dto.setFechaInicio(textField_2.getText());
 				dto.setFechaFin(textField_3.getText());
-				dto.setObjetivo((Long) spinner.getValue());
-				erController.getRetos((String) comboBox.getSelectedItem()).add(dto);
+				try {
+					int a = (int) spinner.getValue();
+					long b = (long) a;
+					dto.setObjetivo(b);
+				} catch (Exception e2) {
+					
+				}
+				
+				try {
+					erController.anyadirRetoARetos(dto, user);
+				} catch (RemoteException e1) {
+					e1.printStackTrace();
+				}
+				
+				dispose();
 				JOptionPane.showMessageDialog(null, "Reto añadido con exito");
+				new VentanaPrincipal(user, erController);
 			}
 		});
 		btnAnyadir.setBounds(138, 268, 89, 23);

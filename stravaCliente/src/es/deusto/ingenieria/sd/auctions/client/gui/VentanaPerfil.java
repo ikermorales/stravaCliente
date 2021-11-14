@@ -21,9 +21,9 @@ public class VentanaPerfil extends JFrame{
 	
 	
 	public VentanaPerfil(UserDTO user, BidController erController) {
+		
 		getContentPane().setBackground(new Color(255, 255, 255));
-		setBounds(100, 100, 293, 449);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setBounds(100, 100, 293, 464);
 		getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("");
@@ -46,7 +46,7 @@ public class VentanaPerfil extends JFrame{
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.BLACK);
-		panel.setBounds(10, 183, 261, 178);
+		panel.setBounds(10, 161, 261, 178);
 		getContentPane().add(panel);
 		panel.setLayout(null);
 		
@@ -119,48 +119,27 @@ public class VentanaPerfil extends JFrame{
 
 		
 		JButton btnNewButton = new JButton("Volver");
+		btnNewButton.setBounds(99, 395, 89, 23);
+		getContentPane().add(btnNewButton);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new VentanaPrincipal(user, erController);
 				dispose();
+				new VentanaPrincipal(user, erController);			
 			}
 		});
-		btnNewButton.setBounds(35, 372, 89, 23);
-		getContentPane().add(btnNewButton);
 		
 
-		JButton btnEditar = new JButton("Editar");
-		btnEditar.addActionListener(new ActionListener() {
+		JButton btnVerRetos = new JButton("Ver Retos Aceptados");
+		btnVerRetos.setForeground(Color.BLACK);
+		btnVerRetos.setBackground(Color.WHITE);
+		btnVerRetos.setBounds(10, 346, 261, 35);
+		getContentPane().add(btnVerRetos);
+		btnVerRetos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				contador = contador + 1;
-				if(contador % 2 != 0) {
-					textField_1.setEnabled(true);
-					textField_2.setEnabled(true);
-					spinner.setEnabled(true);
-					spinner.setEnabled(true);
-					spinner_1.setEnabled(true);
-					spinner_1_1.setEnabled(true);
-					spinner_1_1_1.setEnabled(true);
-					spinner_1_1_1_1.setEnabled(true);
-					btnEditar.setLabel("Guardar");
-				} else {
-					textField_1.setEnabled(false);
-					textField_2.setEnabled(false);
-					spinner.setEnabled(false);
-					spinner.setEnabled(false);
-					spinner_1.setEnabled(false);
-					spinner_1_1.setEnabled(false);
-					spinner_1_1_1.setEnabled(false);
-					spinner_1_1_1_1.setEnabled(false);
-					btnEditar.setLabel("Editar");
-				}
-				}
+				dispose();
+				new VentanaRetosAceptados(user, erController);			
+			}
 		});
-		btnEditar.setBounds(159, 372, 89, 23);
-		getContentPane().add(btnEditar);
-
-		
-		
 		
 		
 		setVisible(true);
