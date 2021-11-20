@@ -71,7 +71,7 @@ public class VentanaCrearUsuarioFacebook extends JFrame{
 		JButton btnCrear = new JButton("Crear");
 		btnCrear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-	
+				
 				if(loginController.login(textEmail.getText(), "", textNickName.getText(), TipoUsuarioDTO.FACEBOOK )) { 
 					UserDTO u = new UserDTO();
 					u.setEmail(textEmail.getText());

@@ -91,15 +91,13 @@ public class VentanaIniciarSesion extends JFrame {
 		aceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String contra = String.valueOf(contrasenya.getPassword());
-				UserDTO u;
 				try {
-					u = erController.getCheckedUsuario(usuario.getText(), contra);
-					new VentanaPrincipal(u, erController);
+					new VentanaPrincipal(erController.getCheckedUsuario(usuario.getText(), contra), erController);
 					dispose();
 				} catch (RemoteException e1) {
-					JOptionPane.showMessageDialog(null, "aqui");
 					e1.printStackTrace();
 				}
+
 
 			}
 		});

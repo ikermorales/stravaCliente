@@ -75,8 +75,8 @@ public class VentanaPerfil extends JFrame{
 		getContentPane().add(btnVerRetos);
 		btnVerRetos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				new VentanaRetosAceptados(user, erController);		
 				dispose();
-				new VentanaRetosAceptados(user, erController);			
 			}
 		});
 		
