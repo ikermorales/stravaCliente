@@ -18,6 +18,7 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 
 import es.deusto.ingenieria.sd.auctions.client.controller.ErController;
+import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoAceptadoDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
 
@@ -44,7 +45,7 @@ public class VentanaRetosAceptados extends JFrame{
 		getContentPane().add(panel);
 		panel.setLayout(new GridLayout(user.getRetosAceptados().size(), 1, 0, 0));
 		
-		for (RetoDTO reto : user.getRetosAceptados()) {
+		for (RetoAceptadoDTO reto : user.getRetosAceptados()) {
 			JPanel panel_1 = new JPanel();
 			panel_1.setLayout(new GridLayout(7,1));
 			panel_1.setBackground(Color.WHITE);
@@ -56,17 +57,14 @@ public class VentanaRetosAceptados extends JFrame{
 			panel_1.add(new JLabel("FechaFin: " + reto.getFechaFin()));
 			panel_1.add(new JLabel("Creador: " + reto.getCreador().getNickname()));
 			
-			JButton boton = new JButton("Calcular");
-			boton.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					try {
-						JOptionPane.showMessageDialog(null, erController.calcularEstado(reto, user) +"%");
-					} catch (HeadlessException | RemoteException e1) {
-						e1.printStackTrace();
-					}
-				}
-			});
-			panel_1.add(boton);
+			try {
+				erController.calcularEstado(reto, user);
+			} catch (RemoteException e1) {
+				JOptionPane.showMessageDialog(null, "Hubo un problema con las fechas");
+			}
+			
+			panel_1.add(new JLabel("Estado: " + reto.getPorcentajeCompletado()));
+			
 			
 			panel.add(panel_1);
 		}

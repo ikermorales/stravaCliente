@@ -19,6 +19,7 @@ public class VentanaCrearUsuarioMetodo extends JFrame {
 	public VentanaCrearUsuarioMetodo(LoginController loginController, ErController erController){
 		getContentPane().setBackground(new Color(255, 255, 255));
 		setBounds(100, 100, 316, 279);
+		setLocationRelativeTo(null);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		getContentPane().setLayout(null);
 		

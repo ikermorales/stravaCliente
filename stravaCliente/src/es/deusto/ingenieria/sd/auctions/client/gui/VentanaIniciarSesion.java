@@ -5,6 +5,9 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
@@ -13,6 +16,9 @@ import javax.swing.event.DocumentListener;
 
 import es.deusto.ingenieria.sd.auctions.client.controller.ErController;
 import es.deusto.ingenieria.sd.auctions.client.controller.LoginController;
+import es.deusto.ingenieria.sd.auctions.server.data.dto.EntrenamientoDTO;
+import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoAceptadoDTO;
+import es.deusto.ingenieria.sd.auctions.server.data.dto.TipoUsuarioDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
 
 public class VentanaIniciarSesion extends JFrame {
@@ -85,15 +91,21 @@ public class VentanaIniciarSesion extends JFrame {
 		aceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String contra = String.valueOf(contrasenya.getPassword());
-				if (loginController.login(usuario.getText(), contra, "")) {
-					new VentanaPrincipal(loginController.getUser(usuario.getText(),contra), erController);
+				UserDTO u;
+				try {
+					u = erController.getCheckedUsuario(usuario.getText(), contra);
+					new VentanaPrincipal(u, erController);
 					dispose();
+				} catch (RemoteException e1) {
+					JOptionPane.showMessageDialog(null, "aqui");
+					e1.printStackTrace();
 				}
+
 			}
 		});
 		crearUsuario = new JButton("Crear Nuevo Usuario");
 		crearUsuario.addActionListener(new ActionListener() {
-			
+
 			public void actionPerformed(ActionEvent e) {
 				new VentanaCrearUsuarioMetodo(loginController, erController);
 				dispose();
@@ -111,6 +123,6 @@ public class VentanaIniciarSesion extends JFrame {
 
 		setVisible(true);		
 	}
-		
-		
-	}
+
+
+}

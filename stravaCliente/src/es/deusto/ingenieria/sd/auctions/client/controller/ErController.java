@@ -6,6 +6,7 @@ import java.util.List;
 
 import es.deusto.ingenieria.sd.auctions.client.remote.ServiceLocator;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.EntrenamientoDTO;
+import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoAceptadoDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
 
@@ -36,9 +37,14 @@ public class ErController {
 		this.serviceLocator.getService().quitarRetoARetos(tituloReto);		
 	}
 
-	public float calcularEstado(RetoDTO reto, UserDTO user)throws RemoteException {
+	public void calcularEstado(RetoAceptadoDTO reto, UserDTO user)throws RemoteException {
 
-		return this.serviceLocator.getService().calcularEstado(reto, user);
+		this.serviceLocator.getService().calcularEstado(reto, user);
+	}
+	
+
+	public UserDTO getCheckedUsuario(String email, String password) throws RemoteException {
+		return this.serviceLocator.getService().getCheckedUsuario(email, password);
 
 	}
 

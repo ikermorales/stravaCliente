@@ -30,6 +30,7 @@ public class VentanaCrearEntrenamiento extends JFrame {
 		getContentPane().setBackground(Color.WHITE);
 		setBounds(100, 100, 305, 372);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
 		getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Crear Entrenamiento");
@@ -67,9 +68,13 @@ public class VentanaCrearEntrenamiento extends JFrame {
 				
 				try {
 					int a = (int) spinner_1.getValue();
+					
 					float b = (float) a;
+					
 					dto.setDistancia(b);
-					dto.setHoraIni(Long.parseLong(textField_2.getText()));
+					
+					dto.setHoraIni(textField_2.getText());
+					
 					int c = (int) spinner.getValue();
 					long d = (long) c;
 					dto.setDuracion(c);

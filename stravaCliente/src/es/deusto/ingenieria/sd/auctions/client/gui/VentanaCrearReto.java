@@ -28,6 +28,7 @@ public class VentanaCrearReto extends JFrame {
 		getContentPane().setBackground(new Color(255, 255, 255));
 		setBounds(100, 100, 270, 339);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
 		getContentPane().setLayout(null);
 
 		JLabel lblNewLabel = new JLabel("Reto");
@@ -54,7 +55,7 @@ public class VentanaCrearReto extends JFrame {
 				dto.setDeporte((String) comboBox.getSelectedItem());
 				dto.setTitulo(textField.getText());
 				dto.setDescripcion(textField_1.getText());
-				dto.setFechaFin(textField_3.getText());
+				dto.setFechaFin(textField_3.getText()); //este no se muy bien si va
 				dto.setFechaInicio(textField_2.getText());
 				
 				try {

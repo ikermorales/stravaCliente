@@ -18,6 +18,7 @@ public class VentanaPrincipal extends JFrame {
 		getContentPane().setBackground(new Color(255, 255, 255));
 		setBounds(100, 100, 394, 231);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		setLocationRelativeTo(null);
 		getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel_1_2_1 = new JLabel("");

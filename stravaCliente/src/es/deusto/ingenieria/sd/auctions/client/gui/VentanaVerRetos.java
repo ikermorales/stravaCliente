@@ -18,6 +18,7 @@ import javax.swing.table.DefaultTableModel;
 
 import es.deusto.ingenieria.sd.auctions.client.controller.ErController;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.EntrenamientoDTO;
+import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoAceptadoDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
 
@@ -25,7 +26,7 @@ public class VentanaVerRetos extends JFrame {
 
 	private ArrayList<RetoDTO> listaActual = new ArrayList<>();
 	private JComboBox comboBox;
-	private RetoDTO r = new RetoDTO();
+	private RetoAceptadoDTO r = new RetoAceptadoDTO();
 
 	public VentanaVerRetos(UserDTO user, ErController erController, List<RetoDTO> retos, List<RetoDTO> retos2) {
 
@@ -82,9 +83,9 @@ public class VentanaVerRetos extends JFrame {
 		JButton btnAadir = new JButton("A\u00F1adir");
 		btnAadir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				List<RetoDTO> retosArray = new ArrayList<>();
+				List<RetoAceptadoDTO> retosArray = new ArrayList<>();
 				
-				for (RetoDTO retoDTO : 	user.getRetosAceptados()) {
+				for (RetoAceptadoDTO retoDTO : 	user.getRetosAceptados()) {
 					retosArray.add(retoDTO);
 				}
 						
@@ -119,6 +120,7 @@ public class VentanaVerRetos extends JFrame {
 			listaActual.add(retoDTO);
 			comboBox.addItem(retoDTO.getTitulo() + " - " + retoDTO.getDeporte());
 		}
+		
 		for (RetoDTO retoDTO : retos2) {
 			listaActual.add(retoDTO);
 			comboBox.addItem(retoDTO.getTitulo() + " - " + retoDTO.getDeporte());

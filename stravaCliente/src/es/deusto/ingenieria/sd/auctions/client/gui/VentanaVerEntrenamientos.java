@@ -76,7 +76,7 @@ public class VentanaVerEntrenamientos extends JFrame {
 		dtm.addColumn("Duracion");
 		dtm.addColumn("Distancia");
 		dtm.addColumn("F.I");
-		dtm.addColumn("F.F");
+		dtm.addColumn("HoraIni");
 		dtm.setNumRows(user.getEntrenamientos().size());
 
 		String[] arrayTitulos = new String[5];
@@ -84,7 +84,7 @@ public class VentanaVerEntrenamientos extends JFrame {
 		arrayTitulos[1] = "Distancia";
 		arrayTitulos[2] = "Duracion";
 		arrayTitulos[3] = "F.I";
-		arrayTitulos[4] = "F.F";
+		arrayTitulos[4] = "HoraIni";
 		dtm.addRow(arrayTitulos);					
 		
 		for (EntrenamientoDTO entrenamiento : user.getEntrenamientos()) {
@@ -112,7 +112,7 @@ public class VentanaVerEntrenamientos extends JFrame {
 				dtm.addColumn("Duracion");
 				dtm.addColumn("Distancia");
 				dtm.addColumn("F.I");
-				dtm.addColumn("F.F");
+				dtm.addColumn("HoraIni");
 				table_1.setModel(dtm);
 				dtm.setNumRows(user.getEntrenamientosD("bici").size());
 				String[] arrayTitulos = new String[5];
@@ -120,7 +120,7 @@ public class VentanaVerEntrenamientos extends JFrame {
 				arrayTitulos[1] = "Distancia";
 				arrayTitulos[2] = "Duracion";
 				arrayTitulos[3] = "F.I";
-				arrayTitulos[4] = "F.F";
+				arrayTitulos[4] = "HoraIni";
 				dtm.addRow(arrayTitulos);	
 				dtm.removeRow(0);
 				

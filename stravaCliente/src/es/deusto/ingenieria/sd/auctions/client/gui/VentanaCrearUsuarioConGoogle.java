@@ -16,7 +16,9 @@ import javax.swing.JTextField;
 import es.deusto.ingenieria.sd.auctions.client.controller.ErController;
 import es.deusto.ingenieria.sd.auctions.client.controller.LoginController;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.EntrenamientoDTO;
+import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoAceptadoDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoDTO;
+import es.deusto.ingenieria.sd.auctions.server.data.dto.TipoUsuarioDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
 
 public class VentanaCrearUsuarioConGoogle extends JFrame {
@@ -27,6 +29,7 @@ public class VentanaCrearUsuarioConGoogle extends JFrame {
 	public VentanaCrearUsuarioConGoogle(LoginController loginController, ErController erController) {
 		getContentPane().setBackground(new Color(255, 255, 255));
 		setBounds(100, 100, 290, 279);
+		setLocationRelativeTo(null);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		getContentPane().setLayout(null);
 		
@@ -67,15 +70,17 @@ public class VentanaCrearUsuarioConGoogle extends JFrame {
 		JButton btnCrear = new JButton("Crear");
 		btnCrear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				UserDTO u = new UserDTO();
-				u.setEmail(textEmail.getText());
-				u.setNickname(textNickName.getText());
-				List<EntrenamientoDTO> edto = new ArrayList<>();
-				u.setEntrenamientos(edto);
-				List<RetoDTO> rdto = new ArrayList<>();
-				u.setRetosAceptados(rdto);
-				dispose();
-				new VentanaPrincipal(u, erController);
+				if(loginController.login(textEmail.getText(), "", textNickName.getText(), TipoUsuarioDTO.GOOGLE )) { 
+					UserDTO u = new UserDTO();
+					u.setEmail(textEmail.getText());
+					u.setNickname(textNickName.getText());
+					List<EntrenamientoDTO> edto = new ArrayList<>();
+					u.setEntrenamientos(edto);
+					List<RetoAceptadoDTO> rdto = new ArrayList<>();
+					u.setRetosAceptados(rdto);
+					dispose();
+					new VentanaPrincipal(u, erController);
+				}
 			}
 		});
 		btnCrear.setBounds(146, 213, 106, 23);

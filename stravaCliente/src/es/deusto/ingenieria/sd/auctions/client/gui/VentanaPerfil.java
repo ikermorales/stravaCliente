@@ -24,6 +24,7 @@ public class VentanaPerfil extends JFrame{
 		
 		getContentPane().setBackground(new Color(255, 255, 255));
 		setBounds(100, 100, 293, 287);
+		setLocationRelativeTo(null);
 		getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("");
