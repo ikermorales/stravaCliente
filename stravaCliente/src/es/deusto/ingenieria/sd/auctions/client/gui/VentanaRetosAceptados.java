@@ -30,6 +30,7 @@ public class VentanaRetosAceptados extends JFrame{
 		setBounds(100, 100, 281, 539);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
+		setLocationRelativeTo(null);
 		
 		JLabel lblNewLabel = new JLabel("Retos Aceptados");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -58,12 +59,17 @@ public class VentanaRetosAceptados extends JFrame{
 			panel_1.add(new JLabel("Creador: " + reto.getCreador().getNickname()));
 			
 			try {
-				erController.calcularEstado(reto, user);
-			} catch (RemoteException e1) {
-				JOptionPane.showMessageDialog(null, "Hubo un problema con las fechas");
+				float porciento = erController.calcularEstado(reto, user);
+				if(porciento >= 100) {
+					reto.setPorcentajeCompletado(100);
+				} else {
+					reto.setPorcentajeCompletado(porciento);
+				}
+			} catch (Exception e1) {
+				e1.printStackTrace();
 			}
 			
-			panel_1.add(new JLabel("Estado: " + reto.getPorcentajeCompletado()));
+			panel_1.add(new JLabel("Estado: " + reto.getPorcentajeCompletado() + "%"));
 			
 			
 			panel.add(panel_1);

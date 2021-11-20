@@ -43,6 +43,11 @@ public class LoginController {
 	public long getToken() {
 		return token;
 	}
+	
+	public UserDTO getCheckedUsuario(String email, String password) throws RemoteException {
+		return this.serviceLocator.getService().getCheckedUsuario(email, password);
+
+	}
 
 
 

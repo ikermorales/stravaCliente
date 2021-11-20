@@ -15,51 +15,110 @@ import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
 
 public class VentanaCrearReto extends JFrame {
-
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JComboBox comboBox;
-	private JSpinner spinner;
+	
+	private JTextField titulotxt;
+	private JTextField descripciontxt;
+	private JTextField fechainiciotxt;
+	private JTextField fechafintxt;
 
 	public VentanaCrearReto(UserDTO user, ErController erController) {
-		getContentPane().setForeground(new Color(0, 0, 0));
-		getContentPane().setBackground(new Color(255, 255, 255));
-		setBounds(100, 100, 270, 339);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setLocationRelativeTo(null);
+	
+		getContentPane().setBackground(Color.WHITE);
+		setBounds(100, 100, 300, 361);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
-
-		JLabel lblNewLabel = new JLabel("Reto");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Century Gothic", Font.PLAIN, 20));
-		lblNewLabel.setBounds(10, 11, 238, 40);
-		getContentPane().add(lblNewLabel);
-
-		JButton btnNewButton = new JButton("Volver");
-		btnNewButton.setBounds(26, 268, 89, 23);
-		btnNewButton.addActionListener(new ActionListener() {
+		
+		JLabel lblCrearReto = new JLabel("Crear Reto");
+		lblCrearReto.setBackground(Color.WHITE);
+		lblCrearReto.setHorizontalAlignment(SwingConstants.CENTER);
+		lblCrearReto.setFont(new Font("Century Gothic", Font.PLAIN, 20));
+		lblCrearReto.setBounds(10, 11, 268, 56);
+		getContentPane().add(lblCrearReto);
+		
+		JLabel lblTitulo = new JLabel("Titulo: ");
+		lblTitulo.setBackground(Color.WHITE);
+		lblTitulo.setBounds(10, 90, 69, 14);
+		getContentPane().add(lblTitulo);
+		
+		titulotxt = new JTextField();
+		titulotxt.setBounds(81, 87, 197, 20);
+		getContentPane().add(titulotxt);
+		titulotxt.setColumns(10);
+		
+		JLabel lblDescripcion = new JLabel("Descripcion:");
+		lblDescripcion.setBackground(Color.WHITE);
+		lblDescripcion.setBounds(10, 118, 69, 14);
+		getContentPane().add(lblDescripcion);
+		
+		descripciontxt = new JTextField();
+		descripciontxt.setColumns(10);
+		descripciontxt.setBounds(81, 115, 197, 20);
+		getContentPane().add(descripciontxt);
+		
+		JComboBox comboBoxDeporte = new JComboBox();
+		comboBoxDeporte.setModel(new DefaultComboBoxModel(new String[] {"bici", "correr"}));
+		comboBoxDeporte.setBounds(81, 146, 197, 22);
+		getContentPane().add(comboBoxDeporte);
+		
+		JLabel lblDeporte = new JLabel("Deporte: ");
+		lblDeporte.setBackground(Color.WHITE);
+		lblDeporte.setBounds(10, 150, 69, 14);
+		getContentPane().add(lblDeporte);
+		
+		JLabel lblFechaInicio = new JLabel("Fecha Inicio:");
+		lblFechaInicio.setBackground(Color.WHITE);
+		lblFechaInicio.setBounds(10, 181, 69, 14);
+		getContentPane().add(lblFechaInicio);
+		
+		fechainiciotxt = new JTextField();
+		fechainiciotxt.setToolTipText("dd/MM/yyyy");
+		fechainiciotxt.setColumns(10);
+		fechainiciotxt.setBounds(81, 178, 197, 20);
+		getContentPane().add(fechainiciotxt);
+		
+		JLabel lblFechaFin = new JLabel("Fecha Fin:");
+		lblFechaFin.setBackground(Color.WHITE);
+		lblFechaFin.setBounds(10, 209, 69, 14);
+		getContentPane().add(lblFechaFin);
+		
+		fechafintxt = new JTextField();
+		fechafintxt.setToolTipText("dd/MM/yyyy");
+		fechafintxt.setColumns(10);
+		fechafintxt.setBounds(81, 206, 197, 20);
+		getContentPane().add(fechafintxt);
+		
+		JSpinner spinnerObjetivo = new JSpinner();
+		spinnerObjetivo.setBounds(81, 237, 69, 20);
+		getContentPane().add(spinnerObjetivo);
+		
+		JLabel lblObjetivo = new JLabel("Objetivo:");
+		lblObjetivo.setBackground(Color.WHITE);
+		lblObjetivo.setBounds(10, 240, 69, 14);
+		getContentPane().add(lblObjetivo);
+		
+		JButton btnVolver = new JButton("Volver");
+		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 				new VentanaPrincipal(user, erController);
 			}
 		});
-		getContentPane().add(btnNewButton);
-
+		btnVolver.setBounds(29, 284, 105, 32);
+		getContentPane().add(btnVolver);
+		
 		JButton btnAnyadir = new JButton("A\u00F1adir");
 		btnAnyadir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				RetoDTO dto = new RetoDTO();
 				dto.setCreador(user);
-				dto.setDeporte((String) comboBox.getSelectedItem());
-				dto.setTitulo(textField.getText());
-				dto.setDescripcion(textField_1.getText());
-				dto.setFechaFin(textField_3.getText()); //este no se muy bien si va
-				dto.setFechaInicio(textField_2.getText());
+				dto.setDeporte((String) comboBoxDeporte.getSelectedItem());
+				dto.setTitulo(titulotxt.getText());
+				dto.setDescripcion(descripciontxt.getText());
+				dto.setFechaFin(fechafintxt.getText());
+				dto.setFechaInicio(fechainiciotxt.getText());
 				
 				try {
-					int a = (int) spinner.getValue();
+					int a = (int) spinnerObjetivo.getValue();
 					long b = (long) a;
 					dto.setObjetivo(b);
 				} catch (Exception e2) {
@@ -76,63 +135,15 @@ public class VentanaCrearReto extends JFrame {
 				new VentanaPrincipal(user, erController);
 			}
 		});
-		btnAnyadir.setBounds(138, 268, 89, 23);
+		btnAnyadir.setBounds(155, 284, 105, 32);
 		getContentPane().add(btnAnyadir);
+		
+		
+		setLocationRelativeTo(null);
 
-		JLabel lblNewLabel_1 = new JLabel("Titulo: ");
-		lblNewLabel_1.setBounds(10, 69, 48, 14);
-		getContentPane().add(lblNewLabel_1);
-
-		JLabel lblNewLabel_1_1 = new JLabel("Descripcion: ");
-		lblNewLabel_1_1.setBounds(10, 99, 80, 14);
-		getContentPane().add(lblNewLabel_1_1);
-
-		JLabel lblNewLabel_2 = new JLabel("Deporte:");
-		lblNewLabel_2.setBounds(10, 130, 57, 14);
-		getContentPane().add(lblNewLabel_2);
-
-		comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"correr", "bici"}));
-		comboBox.setSelectedIndex(1);
-		comboBox.setBounds(100, 127, 148, 20);
-		getContentPane().add(comboBox);
-
-		textField = new JTextField();
-		textField.setBounds(100, 66, 148, 20);
-		getContentPane().add(textField);
-		textField.setColumns(10);
-
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(100, 96, 148, 20);
-		getContentPane().add(textField_1);
-
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(100, 158, 148, 20);
-		getContentPane().add(textField_2);
-
-		JLabel lblNewLabel_1_1_1 = new JLabel("Fecha inicio: ");
-		lblNewLabel_1_1_1.setBounds(10, 161, 80, 14);
-		getContentPane().add(lblNewLabel_1_1_1);
-
-		JLabel lblNewLabel_1_1_1_1 = new JLabel("Fecha fin: ");
-		lblNewLabel_1_1_1_1.setBounds(10, 189, 80, 14);
-		getContentPane().add(lblNewLabel_1_1_1_1);
-
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(100, 186, 148, 20);
-		getContentPane().add(textField_3);
-
-		spinner = new JSpinner();
-		spinner.setBounds(100, 218, 58, 20);
-		getContentPane().add(spinner);
-
-		JLabel lblNewLabel_1_1_1_1_1 = new JLabel("Objetivo: ");
-		lblNewLabel_1_1_1_1_1.setBounds(10, 221, 74, 14);
-		getContentPane().add(lblNewLabel_1_1_1_1_1);
-
+		setVisible(true);
+		
+		
 		setVisible(true);
 
 	}

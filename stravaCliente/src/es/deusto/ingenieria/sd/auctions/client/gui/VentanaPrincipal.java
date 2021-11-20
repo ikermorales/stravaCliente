@@ -9,6 +9,7 @@ import javax.swing.*;
 import es.deusto.ingenieria.sd.auctions.client.controller.ErController;
 import es.deusto.ingenieria.sd.auctions.client.controller.LoginController;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.EntrenamientoDTO;
+import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
 
 public class VentanaPrincipal extends JFrame {	

@@ -92,8 +92,12 @@ public class VentanaIniciarSesion extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String contra = String.valueOf(contrasenya.getPassword());
 				try {
-					new VentanaPrincipal(erController.getCheckedUsuario(usuario.getText(), contra), erController);
-					dispose();
+					if(loginController.getCheckedUsuario(usuario.getText(), contra).getNickname() != null) {
+						new VentanaPrincipal(loginController.getCheckedUsuario(usuario.getText(), contra), erController);
+						dispose();
+					} else {
+						JOptionPane.showMessageDialog(null, "Creendenciales incorrectas");
+					}
 				} catch (RemoteException e1) {
 					e1.printStackTrace();
 				}

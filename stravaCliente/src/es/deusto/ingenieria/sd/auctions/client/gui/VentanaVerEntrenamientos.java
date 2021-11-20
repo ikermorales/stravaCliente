@@ -37,6 +37,7 @@ public class VentanaVerEntrenamientos extends JFrame {
 		setBounds(100, 100, 454, 369);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
+		setLocationRelativeTo(null);
 		
 		JLabel lblNewLabel = new JLabel("Entrenamientos");
 		lblNewLabel.setBackground(Color.WHITE);

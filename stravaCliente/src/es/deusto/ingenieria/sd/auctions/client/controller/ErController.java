@@ -37,16 +37,10 @@ public class ErController {
 		this.serviceLocator.getService().quitarRetoARetos(tituloReto);		
 	}
 
-	public void calcularEstado(RetoAceptadoDTO reto, UserDTO user)throws RemoteException {
-
-		this.serviceLocator.getService().calcularEstado(reto, user);
+	public float calcularEstado(RetoAceptadoDTO reto, UserDTO user)throws RemoteException {
+		return this.serviceLocator.getService().calcularEstado(reto, user);
 	}
-	
 
-	public UserDTO getCheckedUsuario(String email, String password) throws RemoteException {
-		return this.serviceLocator.getService().getCheckedUsuario(email, password);
-
-	}
 
 
 }
