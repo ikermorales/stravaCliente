@@ -13,8 +13,6 @@ public class LoginController {
 	private ServiceLocator serviceLocator;
 	private long token = -1; //-1 = login has not been done or fails
 
-
-
 	public LoginController(ServiceLocator serviceLocator) {
 		this.serviceLocator = serviceLocator;
 	}

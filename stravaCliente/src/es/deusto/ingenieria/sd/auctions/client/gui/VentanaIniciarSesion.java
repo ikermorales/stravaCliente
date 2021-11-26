@@ -2,6 +2,7 @@ package es.deusto.ingenieria.sd.auctions.client.gui;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -23,77 +24,49 @@ import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
 
 public class VentanaIniciarSesion extends JFrame {
 
-	private JPanel panelUsuario;
-	private JTextField usuario;
-	private JLabel labelUsuario = new JLabel("        Usuario: ");
-
-	private JPanel panelContrasenya;
-	private JPasswordField contrasenya;
-	private JLabel labelContrasenya = new JLabel("  Contraseña: ");
-
-	private JButton aceptar;
-	private JButton crearUsuario;
-	private JPanel panelBotonera;
-
-	private JPanel panelDatos;
-
-	private JPanel panelDecorativo;
-	private JLabel labelDecorativo;
+	private JTextField emailtxt;
+	private JPasswordField contrasenyatxt;
 
 
 	public VentanaIniciarSesion(LoginController loginController, ErController erController) {
-		setTitle("Inicio");
-		setSize(310,260);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setLayout(new GridLayout(2,1));
-		setResizable(false);
-		setLocationRelativeTo(null);
-		setBackground(Color.WHITE);
-
-
-		panelDecorativo = new JPanel();
-		panelDecorativo.setLayout(new GridLayout(1,1));
-		panelDecorativo.setBorder(BorderFactory.createEmptyBorder(10, 0, 20, 0)); //TOC
-		labelDecorativo = new JLabel(new ImageIcon("iconos/login.png"));
-		panelDecorativo.setBackground(Color.WHITE);
-		panelDecorativo.add(labelDecorativo);
-		add(panelDecorativo);
-
-
-		panelDatos = new JPanel();
-		panelDatos.setLayout(new GridLayout(3,1));
-		panelDatos.setBorder(new LineBorder(Color.LIGHT_GRAY));
-		panelDatos.setSize(new Dimension(100,100));
-		panelDatos.setBackground(new Color(0,0,0));
-		panelDatos.setPreferredSize(new Dimension(280,100));
-		add(panelDatos);
-
-		panelUsuario = new JPanel();
-		usuario = new JTextField();
-		usuario.setPreferredSize(new Dimension(100,25));
-		panelUsuario.add(labelUsuario);
-		labelUsuario.setForeground(Color.WHITE);
-		panelUsuario.add(usuario);
-		panelUsuario.setBackground(new Color(0,0,0));
-		panelDatos.add(panelUsuario);
-
-		panelContrasenya = new JPanel();
-		contrasenya = new JPasswordField();
-		contrasenya.setPreferredSize(new Dimension(100,25));
-		panelContrasenya.add(labelContrasenya);
-		labelContrasenya.setForeground(Color.WHITE);
-		panelContrasenya.add(contrasenya);
-		panelContrasenya.setBackground(new Color(0,0,0));
-		panelDatos.add(panelContrasenya);
-
-		panelBotonera = new JPanel();
-		aceptar = new JButton("Iniciar Sesión");
-		aceptar.addActionListener(new ActionListener() {
+				
+		getContentPane().setBackground(Color.BLACK);
+		setBounds(100, 100, 300, 323);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		getContentPane().setLayout(null);
+		
+		JLabel lblEmail = new JLabel("Email:");
+		lblEmail.setForeground(Color.WHITE);
+		lblEmail.setBackground(Color.WHITE);
+		lblEmail.setBounds(10, 175, 69, 14);
+		getContentPane().add(lblEmail);
+		
+		emailtxt = new JTextField();
+		emailtxt.setBackground(Color.WHITE);
+		emailtxt.setBounds(81, 172, 197, 20);
+		getContentPane().add(emailtxt);
+		emailtxt.setColumns(10);
+		
+		JLabel lblContrasenya = new JLabel("Contrase\u00F1a:");
+		lblContrasenya.setForeground(Color.WHITE);
+		lblContrasenya.setBackground(Color.WHITE);
+		lblContrasenya.setBounds(10, 207, 69, 14);
+		getContentPane().add(lblContrasenya);
+		
+		contrasenyatxt = new JPasswordField();
+		contrasenyatxt.setBackground(Color.WHITE);
+		contrasenyatxt.setColumns(10);
+		contrasenyatxt.setBounds(81, 204, 197, 20);
+		getContentPane().add(contrasenyatxt);
+		
+		JButton btnVolver = new JButton("Iniciar sesion");
+		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String contra = String.valueOf(contrasenya.getPassword());
+				
+				String contra = String.valueOf(contrasenyatxt.getPassword());
 				try {
-					if(loginController.getCheckedUsuario(usuario.getText(), contra).getNickname() != null) {
-						new VentanaPrincipal(loginController.getCheckedUsuario(usuario.getText(), contra), erController);
+					if(loginController.getCheckedUsuario(emailtxt.getText(), contra).getNickname() != null) {
+						new VentanaPrincipal(loginController.getCheckedUsuario(emailtxt.getText(), contra), erController);
 						dispose();
 					} else {
 						JOptionPane.showMessageDialog(null, "Creendenciales incorrectas");
@@ -101,28 +74,65 @@ public class VentanaIniciarSesion extends JFrame {
 				} catch (RemoteException e1) {
 					e1.printStackTrace();
 				}
-
-
+				
 			}
 		});
-		crearUsuario = new JButton("Crear Nuevo Usuario");
-		crearUsuario.addActionListener(new ActionListener() {
-
+		btnVolver.setBackground(Color.WHITE);
+		btnVolver.setBounds(10, 245, 132, 32);
+		getContentPane().add(btnVolver);
+		
+		JButton btnCrearUsuario = new JButton("Crear usuario");
+		btnCrearUsuario.setBackground(Color.WHITE);
+		btnCrearUsuario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				new VentanaCrearUsuarioMetodo(loginController, erController);
 				dispose();
+				
 			}
 		});
-		crearUsuario.setEnabled(true);
-		crearUsuario.setForeground(Color.BLACK);
-		aceptar.setForeground(Color.BLACK);
-		crearUsuario.setBackground(Color.WHITE);
-		aceptar.setBackground(Color.WHITE);
-		panelBotonera.add(aceptar);
-		panelBotonera.add(crearUsuario);
-		panelBotonera.setBackground(new Color(0,0,0));
-		panelDatos.add(panelBotonera);
-
+		btnCrearUsuario.setBounds(151, 245, 127, 32);
+		getContentPane().add(btnCrearUsuario);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(Color.WHITE);
+		panel.setBounds(0, 0, 288, 132);
+		getContentPane().add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblIcono = new JLabel("");
+		lblIcono.setBounds(10, 0, 268, 64);
+		panel.add(lblIcono);
+		lblIcono.setForeground(Color.WHITE);
+		lblIcono.setIcon(new ImageIcon("iconos/login.png"));
+		lblIcono.setVerticalAlignment(SwingConstants.BOTTOM);
+		lblIcono.setBackground(Color.WHITE);
+		lblIcono.setHorizontalAlignment(SwingConstants.CENTER);
+		lblIcono.setFont(new Font("Century Gothic", Font.PLAIN, 20));
+		
+		JButton btnNewButton = new JButton("");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton.setIcon(new ImageIcon("iconos/googleBW.png"));
+		btnNewButton.setBackground(Color.WHITE);
+		btnNewButton.setForeground(new Color(0, 0, 0));
+		btnNewButton.setBounds(162, 72, 53, 49);
+		panel.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("");
+		btnNewButton_1.setIcon(new ImageIcon("iconos/facebookBW.png"));
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton_1.setForeground(Color.BLACK);
+		btnNewButton_1.setBackground(Color.WHITE);
+		btnNewButton_1.setBounds(225, 72, 53, 49);
+		panel.add(btnNewButton_1);
+		
+		
 		setVisible(true);		
 	}
 
