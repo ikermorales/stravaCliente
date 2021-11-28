@@ -99,7 +99,7 @@ public class VentanaCrearUsuarioFacebook extends JFrame{
 		getContentPane().add(btnNewButton_1);
 
 		JLabel lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setIcon(new ImageIcon("iconos/facebook.png"));
+		lblNewLabel_2.setIcon(new ImageIcon("iconos/FACEBOOKMAX.png"));
 		lblNewLabel_2.setBounds(110, 11, 65, 62);
 		getContentPane().add(lblNewLabel_2);
 

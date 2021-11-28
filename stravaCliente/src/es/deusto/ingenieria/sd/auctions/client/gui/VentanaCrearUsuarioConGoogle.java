@@ -96,7 +96,7 @@ public class VentanaCrearUsuarioConGoogle extends JFrame {
 		getContentPane().add(btnNewButton_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setIcon(new ImageIcon("iconos/google.png"));
+		lblNewLabel_2.setIcon(new ImageIcon("iconos/GOOGLEMAX.png"));
 		lblNewLabel_2.setBounds(110, 11, 65, 62);
 		getContentPane().add(lblNewLabel_2);
 		

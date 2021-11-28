@@ -34,7 +34,8 @@ public class VentanaPrincipal extends JFrame {
 			}
 		});
 		btnPerfil.setBackground(new Color(255, 255, 255));
-		btnPerfil.setIcon(new ImageIcon("iconos/microperfil.png"));
+		String iconoPerfil = "iconos/" + user.getTipoUsuario()+ ".png";
+		btnPerfil.setIcon(new ImageIcon(iconoPerfil));
 		btnPerfil.setBounds(330, 11, 40, 39);
 		getContentPane().add(btnPerfil);
 		

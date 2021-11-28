@@ -50,7 +50,7 @@ public class VentanaCrearUsuarioMetodo extends JFrame {
 				dispose();
 			}
 		});
-		btnNewButton_1.setIcon(new ImageIcon("iconos/email.png"));
+		btnNewButton_1.setIcon(new ImageIcon("iconos/local.png"));
 		btnNewButton_1.setBounds(10, 78, 89, 89);
 		getContentPane().add(btnNewButton_1);
 		
@@ -61,7 +61,7 @@ public class VentanaCrearUsuarioMetodo extends JFrame {
 				dispose();
 			}
 		});
-		btnNewButton_1_1.setIcon(new ImageIcon("iconos/google.png"));
+		btnNewButton_1_1.setIcon(new ImageIcon("iconos/GOOGLEMAX.png"));
 		btnNewButton_1_1.setBounds(109, 78, 89, 89);
 		getContentPane().add(btnNewButton_1_1);
 		
@@ -72,7 +72,7 @@ public class VentanaCrearUsuarioMetodo extends JFrame {
 				dispose();
 			}
 		});
-		btnNewButton_1_1_1.setIcon(new ImageIcon("iconos/facebook.png"));
+		btnNewButton_1_1_1.setIcon(new ImageIcon("iconos/FACEBOOKMAX.png"));
 		btnNewButton_1_1_1.setBounds(208, 78, 89, 89);
 		getContentPane().add(btnNewButton_1_1_1);
 		setVisible(true);

@@ -28,7 +28,8 @@ public class VentanaPerfil extends JFrame{
 		getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("iconos/perfil.png"));
+		String iconoPerfil = "iconos/" + user.getTipoUsuario() + "MAX.png";
+		lblNewLabel.setIcon(new ImageIcon(iconoPerfil));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Gill Sans Ultra Bold Condensed", Font.PLAIN, 27));
 		lblNewLabel.setBounds(10, 11, 261, 71);
