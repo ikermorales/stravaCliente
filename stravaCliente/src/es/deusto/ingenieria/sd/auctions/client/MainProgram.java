@@ -21,14 +21,5 @@ public class MainProgram {
 		ErController bidController = new ErController(serviceLocator);			
 		VentanaIniciarSesion ventanaIniciarSesion = new VentanaIniciarSesion(loginController, bidController);	
 		
-		//Login	
-		
-//		List<CategoryDTO> categories = bidWindow.getCategories();
-//
-//		List<ArticleDTO> articles = bidWindow.getArticles(categories.get(0).getName());
-//
-//		articles = bidWindow.getArticles(categories.get(0).getName());
-		
-//		loginController.logout();
 	}
 }
