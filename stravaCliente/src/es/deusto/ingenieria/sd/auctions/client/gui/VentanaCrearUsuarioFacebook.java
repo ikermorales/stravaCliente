@@ -71,17 +71,13 @@ public class VentanaCrearUsuarioFacebook extends JFrame{
 		JButton btnCrear = new JButton("Crear");
 		btnCrear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				if(loginController.login(textEmail.getText(), "", textNickName.getText(), TipoUsuarioDTO.FACEBOOK )) { 
-					UserDTO u = new UserDTO();
-					u.setEmail(textEmail.getText());
-					u.setNickname(textNickName.getText());
-					List<EntrenamientoDTO> edto = new ArrayList<>();
-					u.setEntrenamientos(edto);
-					List<RetoAceptadoDTO> rdto = new ArrayList<>();
-					u.setRetosAceptados(rdto);
+				try {
+					loginController.crearUsuario(TipoUsuarioDTO.FACEBOOK, textEmail.getText(), textNickName.getText(), "", 0, 0, 0, 0, 0);
+					new VentanaIniciarSesion(loginController, erController);
 					dispose();
-					new VentanaPrincipal(u, erController);
+				} catch (RemoteException e1) {
+
+					e1.printStackTrace();
 				}
 			}
 		});

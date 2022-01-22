@@ -9,6 +9,7 @@ import javax.swing.*;
 import javax.swing.border.LineBorder;
 
 import es.deusto.ingenieria.sd.auctions.client.controller.ErController;
+import es.deusto.ingenieria.sd.auctions.client.controller.LoginController;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
 
 public class VentanaPerfil extends JFrame{
@@ -20,7 +21,7 @@ public class VentanaPerfil extends JFrame{
 
 	
 	
-	public VentanaPerfil(UserDTO user, ErController erController) {
+	public VentanaPerfil(UserDTO user, ErController erController, LoginController loginController) {
 		
 		getContentPane().setBackground(new Color(255, 255, 255));
 		setBounds(100, 100, 293, 287);
@@ -64,7 +65,7 @@ public class VentanaPerfil extends JFrame{
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				new VentanaPrincipal(user, erController);			
+				new VentanaPrincipal(user, erController, loginController);			
 			}
 		});
 		
@@ -76,7 +77,7 @@ public class VentanaPerfil extends JFrame{
 		getContentPane().add(btnVerRetos);
 		btnVerRetos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new VentanaRetosAceptados(user, erController);		
+				new VentanaRetosAceptados(user, erController, loginController);		
 				dispose();
 			}
 		});

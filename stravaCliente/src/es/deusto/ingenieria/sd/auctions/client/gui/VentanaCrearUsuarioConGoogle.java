@@ -25,38 +25,38 @@ public class VentanaCrearUsuarioConGoogle extends JFrame {
 
 	private JTextField textNickName;
 	private JTextField textEmail;
-	
+
 	public VentanaCrearUsuarioConGoogle(LoginController loginController, ErController erController) {
 		getContentPane().setBackground(new Color(255, 255, 255));
 		setBounds(100, 100, 290, 279);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		getContentPane().setLayout(null);
-		
+
 		textNickName = new JTextField();
 		textNickName.setToolTipText("");
 		textNickName.setBounds(82, 103, 170, 20);
 		getContentPane().add(textNickName);
 		textNickName.setColumns(10);
-		
+
 		JLabel lblNewLabel_1 = new JLabel("nickname:");
 		lblNewLabel_1.setBounds(10, 106, 65, 14);
 		getContentPane().add(lblNewLabel_1);
-		
+
 		JLabel lblNewLabel_1_1 = new JLabel("email:");
 		lblNewLabel_1_1.setBounds(10, 137, 65, 14);
 		getContentPane().add(lblNewLabel_1_1);
-		
+
 		textEmail = new JTextField();
 		textEmail.setToolTipText("");
 		textEmail.setColumns(10);
 		textEmail.setBounds(82, 134, 170, 20);
 		getContentPane().add(textEmail);
-		
+
 		JLabel lblNewLabel_1_2_1 = new JLabel("");
 		lblNewLabel_1_2_1.setBounds(10, 214, 65, 14);
 		getContentPane().add(lblNewLabel_1_2_1);
-		
+
 		JButton btnNewButton = new JButton("Cancelar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -66,26 +66,24 @@ public class VentanaCrearUsuarioConGoogle extends JFrame {
 		});
 		btnNewButton.setBounds(32, 213, 106, 23);
 		getContentPane().add(btnNewButton);
-		
+
 		JButton btnCrear = new JButton("Crear");
 		btnCrear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(loginController.login(textEmail.getText(), "", textNickName.getText(), TipoUsuarioDTO.GOOGLE )) { 
-					UserDTO u = new UserDTO();
-					u.setEmail(textEmail.getText());
-					u.setNickname(textNickName.getText());
-					List<EntrenamientoDTO> edto = new ArrayList<>();
-					u.setEntrenamientos(edto);
-					List<RetoAceptadoDTO> rdto = new ArrayList<>();
-					u.setRetosAceptados(rdto);
+				try {
+					loginController.crearUsuario(TipoUsuarioDTO.GOOGLE, textEmail.getText(), textNickName.getText(), "", 0, 0, 0, 0, 0);
+					new VentanaIniciarSesion(loginController, erController);
 					dispose();
-					new VentanaPrincipal(u, erController);
+				} catch (RemoteException e1) {
+
+					e1.printStackTrace();
 				}
+				//					new VentanaPrincipal(u, erController);
 			}
 		});
 		btnCrear.setBounds(146, 213, 106, 23);
 		getContentPane().add(btnCrear);
-		
+
 		JButton btnNewButton_1 = new JButton("datos extra");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -94,12 +92,12 @@ public class VentanaCrearUsuarioConGoogle extends JFrame {
 		});
 		btnNewButton_1.setBounds(146, 165, 106, 23);
 		getContentPane().add(btnNewButton_1);
-		
+
 		JLabel lblNewLabel_2 = new JLabel("");
 		lblNewLabel_2.setIcon(new ImageIcon("iconos/GOOGLEMAX.png"));
 		lblNewLabel_2.setBounds(110, 11, 65, 62);
 		getContentPane().add(lblNewLabel_2);
-		
+
 		setVisible(true);
 	}
 }

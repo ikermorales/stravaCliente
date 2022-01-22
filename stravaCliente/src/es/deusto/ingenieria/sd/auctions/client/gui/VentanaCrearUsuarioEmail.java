@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -87,18 +88,15 @@ public class VentanaCrearUsuarioEmail extends JFrame {
 		JButton btnCrear = new JButton("Crear");
 		btnCrear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(loginController.login(textEmail.getText(), textContrasenya.getText(), textNickName.getText(), TipoUsuarioDTO.EMAIL )) {
-					UserDTO u = new UserDTO();
-					u.setEmail(textEmail.getText());
-					u.setNickname(textNickName.getText());
-					List<EntrenamientoDTO> edto = new ArrayList<>();
-					u.setEntrenamientos(edto);
-					List<RetoAceptadoDTO> rdto = new ArrayList<>();
-					u.setRetosAceptados(rdto);
-					new VentanaPrincipal(u, erController);
+				try {
+					loginController.crearUsuario(TipoUsuarioDTO.EMAIL, textEmail.getText(), textNickName.getText(), textContrasenya.getText(), 0, 0, 0, 0, 0);
+					new VentanaIniciarSesion(loginController, erController);
 					dispose();
+					
+				} catch (RemoteException e1) {
+					e1.printStackTrace();
 				}
-				
+			
 			}
 		});
 		btnCrear.setBounds(146, 214, 106, 23);

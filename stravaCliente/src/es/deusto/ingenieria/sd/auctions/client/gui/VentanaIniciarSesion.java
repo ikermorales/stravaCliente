@@ -66,7 +66,7 @@ public class VentanaIniciarSesion extends JFrame {
 				String contra = String.valueOf(contrasenyatxt.getPassword());
 				try {
 					if(loginController.getCheckedUsuario(emailtxt.getText(), contra).getNickname() != null) {
-						new VentanaPrincipal(loginController.getCheckedUsuario(emailtxt.getText(), contra), erController);
+						new VentanaPrincipal(loginController.getCheckedUsuario(emailtxt.getText(), contra), erController, loginController);
 						dispose();
 					} else {
 						JOptionPane.showMessageDialog(null, "Creendenciales incorrectas");

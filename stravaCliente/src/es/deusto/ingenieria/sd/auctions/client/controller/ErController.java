@@ -33,11 +33,11 @@ public class ErController {
 		return this.serviceLocator.getService().calcularEstado(reto, user);
 	}
 	
-	public void crearEntrenamiento(UserDTO usuarioDTO, String deporte, String titulo, String fechaIni, int distancia, String horaIni, int duracion) {
+	public void crearEntrenamiento(UserDTO usuarioDTO, String deporte, String titulo, String fechaIni, int distancia, String horaIni, int duracion) throws RemoteException {
 		this.serviceLocator.getService().crearEntrenamiento(usuarioDTO, deporte, titulo, fechaIni, distancia, horaIni, duracion);
 	}
 	
-	public void crearReto(UserDTO user, String deporte, String titulo, String descripcion, String fechaIni, String fechaFin, int objetivo) {
+	public void crearReto(UserDTO user, String deporte, String titulo, String descripcion, String fechaIni, String fechaFin, int objetivo) throws RemoteException {
 		this.serviceLocator.getService().crearReto(user, deporte, titulo, descripcion, fechaIni, fechaFin, objetivo);
 	}
 

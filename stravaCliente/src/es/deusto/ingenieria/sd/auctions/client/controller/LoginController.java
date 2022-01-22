@@ -47,11 +47,14 @@ public class LoginController {
 
 	}
 	
-	public void crearUsuario(TipoUsuarioDTO tipo, String email, String nickname, int alt, int fcm, int fcr, int peso, int rpm) {
-		this.serviceLocator.getService().crearUsuario(tipo, email, nickname, alt, fcm, fcr, peso, rpm);
+	public void crearUsuario(TipoUsuarioDTO tipo, String email, String nickname, String password, int alt, int fcm, int fcr, int peso, int rpm) throws RemoteException {
+		this.serviceLocator.getService().crearUsuario(tipo, email, nickname, password, alt, fcm, fcr, peso, rpm);
 	}
 
-
+	public UserDTO actualizarUser(UserDTO u) throws RemoteException {
+		return this.serviceLocator.getService().actualizarUser(u);
+	}
+	
 
 
 

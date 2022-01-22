@@ -7,12 +7,14 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Date;
 
 import javax.swing.*;
 
 import es.deusto.ingenieria.sd.auctions.client.controller.ErController;
+import es.deusto.ingenieria.sd.auctions.client.controller.LoginController;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.EntrenamientoDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
 
@@ -25,7 +27,7 @@ public class VentanaCrearEntrenamiento extends JFrame {
 	private JSpinner spinner;
 	private JSpinner spinner_1;
 	
-	public VentanaCrearEntrenamiento(UserDTO user, ErController erEntrenamientos) {
+	public VentanaCrearEntrenamiento(UserDTO user, ErController erEntrenamientos, LoginController loginController) {
 		
 		getContentPane().setBackground(Color.WHITE);
 		setBounds(100, 100, 305, 372);
@@ -44,7 +46,7 @@ public class VentanaCrearEntrenamiento extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				new VentanaPrincipal(user, erEntrenamientos);			
+				new VentanaPrincipal(user, erEntrenamientos, loginController);			
 			}
 		});
 		btnNewButton.setBounds(45, 303, 89, 23);
@@ -87,7 +89,16 @@ public class VentanaCrearEntrenamiento extends JFrame {
 				
 				
 				dispose();
-				new VentanaPrincipal(user, erEntrenamientos);
+				new VentanaPrincipal(user, erEntrenamientos,loginController);
+
+				try {
+					loginController.actualizarUser(user);
+					user.setEntrenamientos(loginController.actualizarUser(user).getEntrenamientos());
+					user.setRetosAceptados(loginController.actualizarUser(user).getRetosAceptados());
+				} catch (RemoteException e1) {
+					e1.printStackTrace();
+				}
+				
 				
 			}
 		});

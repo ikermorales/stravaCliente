@@ -14,7 +14,7 @@ import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
 
 public class VentanaPrincipal extends JFrame {	
 	
-	public VentanaPrincipal(UserDTO user, ErController erController) {
+	public VentanaPrincipal(UserDTO user, ErController erController, LoginController loginController) {
 		
 		getContentPane().setBackground(new Color(255, 255, 255));
 		setBounds(100, 100, 394, 231);
@@ -29,7 +29,7 @@ public class VentanaPrincipal extends JFrame {
 		JButton btnPerfil = new JButton("");
 		btnPerfil.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new VentanaPerfil(user, erController);
+				new VentanaPerfil(user, erController, loginController);
 				dispose();
 			}
 		});
@@ -49,7 +49,7 @@ public class VentanaPrincipal extends JFrame {
 		btnNewButton.setBounds(10, 97, 175, 34);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new VentanaCrearEntrenamiento(user, erController);
+				new VentanaCrearEntrenamiento(user, erController, loginController);
 				dispose();
 			}
 		});
@@ -58,7 +58,7 @@ public class VentanaPrincipal extends JFrame {
 		JButton btnVerEntrenamiento = new JButton("Ver entrenamiento");
 		btnVerEntrenamiento.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new VentanaVerEntrenamientos(user, erController);
+				new VentanaVerEntrenamientos(user, erController, loginController);
 				dispose();
 			}
 		});
@@ -69,7 +69,7 @@ public class VentanaPrincipal extends JFrame {
 		btnCrearReto.setBounds(195, 97, 175, 34);
 		btnCrearReto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new VentanaCrearReto(user, erController);
+				new VentanaCrearReto(user, erController, loginController);
 				dispose();
 			}
 		});
@@ -78,7 +78,7 @@ public class VentanaPrincipal extends JFrame {
 		JButton btnVerRetos = new JButton("Ver retos");
 		btnVerRetos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new VentanaVerRetos(user, erController, erController.getRetos("bici"), erController.getRetos("correr"));
+				new VentanaVerRetos(user, erController, loginController, erController.getRetos("bici"), erController.getRetos("correr"));
 				dispose();
 			}
 		});

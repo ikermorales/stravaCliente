@@ -17,6 +17,7 @@ import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
 import es.deusto.ingenieria.sd.auctions.client.controller.ErController;
+import es.deusto.ingenieria.sd.auctions.client.controller.LoginController;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.EntrenamientoDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoAceptadoDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoDTO;
@@ -29,7 +30,7 @@ public class VentanaVerRetos extends JFrame {
 	
 	private RetoDTO r = new RetoDTO();
 
-	public VentanaVerRetos(UserDTO user, ErController erController, List<RetoDTO> retos, List<RetoDTO> retos2) {
+	public VentanaVerRetos(UserDTO user, ErController erController, LoginController loginController, List<RetoDTO> retos, List<RetoDTO> retos2) {
 
 		getContentPane().setBackground(new Color(255, 255, 255));
 		setBounds(100, 100, 266, 399);
@@ -40,7 +41,7 @@ public class VentanaVerRetos extends JFrame {
 		JButton btnNewButton = new JButton("Volver");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new VentanaPrincipal(user, erController);
+				new VentanaPrincipal(user, erController, loginController);
 				dispose();
 			}
 		});
@@ -119,7 +120,7 @@ public class VentanaVerRetos extends JFrame {
 //				}
 
 				dispose();
-				new VentanaPrincipal(user, erController);
+				new VentanaPrincipal(user, erController, loginController);
 				JOptionPane.showMessageDialog(null, "Reto añadido");
 
 			}

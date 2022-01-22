@@ -18,13 +18,14 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 
 import es.deusto.ingenieria.sd.auctions.client.controller.ErController;
+import es.deusto.ingenieria.sd.auctions.client.controller.LoginController;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoAceptadoDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
 
 public class VentanaRetosAceptados extends JFrame{
 	
-	public VentanaRetosAceptados(UserDTO user, ErController erController) {
+	public VentanaRetosAceptados(UserDTO user, ErController erController, LoginController loginController) {
 		
 		getContentPane().setBackground(Color.WHITE);
 		setBounds(100, 100, 281, 539);
@@ -79,7 +80,7 @@ public class VentanaRetosAceptados extends JFrame{
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				new VentanaPerfil(user, erController);			
+				new VentanaPerfil(user, erController, loginController);			
 			}
 		});
 		btnNewButton.setBounds(89, 470, 89, 23);

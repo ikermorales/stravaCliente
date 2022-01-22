@@ -22,6 +22,7 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.table.DefaultTableModel;
 
 import es.deusto.ingenieria.sd.auctions.client.controller.ErController;
+import es.deusto.ingenieria.sd.auctions.client.controller.LoginController;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.EntrenamientoDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
 
@@ -31,7 +32,7 @@ public class VentanaVerEntrenamientos extends JFrame {
 	
 	JTable table_1;
 
-	public VentanaVerEntrenamientos(UserDTO user, ErController erController) {
+	public VentanaVerEntrenamientos(UserDTO user, ErController erController, LoginController loginController) {
 				
 		getContentPane().setBackground(Color.WHITE);
 		setBounds(100, 100, 454, 369);
@@ -59,7 +60,7 @@ public class VentanaVerEntrenamientos extends JFrame {
 		JButton btnNewButton = new JButton("Volver");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new VentanaPrincipal(user, erController);
+				new VentanaPrincipal(user, erController, loginController);
 				dispose();
 			}
 		});

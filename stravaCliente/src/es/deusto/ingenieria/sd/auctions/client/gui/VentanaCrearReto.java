@@ -11,6 +11,7 @@ import java.rmi.RemoteException;
 import javax.swing.*;
 
 import es.deusto.ingenieria.sd.auctions.client.controller.ErController;
+import es.deusto.ingenieria.sd.auctions.client.controller.LoginController;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
 
@@ -21,7 +22,7 @@ public class VentanaCrearReto extends JFrame {
 	private JTextField fechainiciotxt;
 	private JTextField fechafintxt;
 
-	public VentanaCrearReto(UserDTO user, ErController erController) {
+	public VentanaCrearReto(UserDTO user, ErController erController, LoginController loginController) {
 	
 		getContentPane().setBackground(Color.WHITE);
 		setBounds(100, 100, 300, 361);
@@ -100,7 +101,7 @@ public class VentanaCrearReto extends JFrame {
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				new VentanaPrincipal(user, erController);
+				new VentanaPrincipal(user, erController, loginController);
 			}
 		});
 		btnVolver.setBounds(29, 284, 105, 32);
@@ -132,7 +133,7 @@ public class VentanaCrearReto extends JFrame {
 //				}
 				
 				dispose();
-				new VentanaPrincipal(user, erController);
+				new VentanaPrincipal(user, erController, loginController);
 			}
 		});
 		btnAnyadir.setBounds(155, 284, 105, 32);
