@@ -1,6 +1,6 @@
 package es.deusto.ingenieria.sd.auctions.client.gui;
 
-import java.awt.Color;
+import java.awt.Color; 
 
 import java.awt.Dimension;
 import java.awt.Font;
@@ -15,6 +15,7 @@ import javax.swing.*;
 
 import es.deusto.ingenieria.sd.auctions.client.controller.ErController;
 import es.deusto.ingenieria.sd.auctions.client.controller.LoginController;
+
 import es.deusto.ingenieria.sd.auctions.server.data.dto.EntrenamientoDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
 
@@ -92,9 +93,20 @@ public class VentanaCrearEntrenamiento extends JFrame {
 				new VentanaPrincipal(user, erEntrenamientos,loginController);
 
 				try {
-					loginController.actualizarUser(user);
-					user.setEntrenamientos(loginController.actualizarUser(user).getEntrenamientos());
-					user.setRetosAceptados(loginController.actualizarUser(user).getRetosAceptados());
+					//(UserDTO usuarioDTO, String deporte, String titulo, String fechaIni, int distancia, String horaIni, int duracion) {
+					int c = (int) spinner.getValue();	
+					int a = (int) spinner_1.getValue();
+					
+					erEntrenamientos.crearEntrenamiento(user, (String) comboBox.getSelectedItem(), textField.getText(), textField_1.getText(), c, textField_2.getText(), a);
+					
+//					UserDTO uNuevo = loginController.actualizarUser(user);
+//					
+					for (EntrenamientoDTO entrena : user.getEntrenamientos()) {
+						System.out.println("Entrenamientooooooooo: "+ entrena.getTitulo());
+					}
+					
+//					user.setEntrenamientos(uNuevo.getEntrenamientos());
+//					user.setRetosAceptados(uNuevo.getRetosAceptados());
 				} catch (RemoteException e1) {
 					e1.printStackTrace();
 				}
