@@ -34,6 +34,7 @@ public class VentanaIniciarSesion extends JFrame {
 		setBounds(100, 100, 300, 323);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
+		setLocationRelativeTo(null);
 		
 		JLabel lblEmail = new JLabel("Email:");
 		lblEmail.setForeground(Color.WHITE);
@@ -47,7 +48,7 @@ public class VentanaIniciarSesion extends JFrame {
 		getContentPane().add(emailtxt);
 		emailtxt.setColumns(10);
 		
-		JLabel lblContrasenya = new JLabel("Contrase\u00F1a:");
+		JLabel lblContrasenya = new JLabel("Password:");
 		lblContrasenya.setForeground(Color.WHITE);
 		lblContrasenya.setBackground(Color.WHITE);
 		lblContrasenya.setBounds(10, 207, 69, 14);
@@ -115,16 +116,27 @@ public class VentanaIniciarSesion extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton.setIcon(new ImageIcon("iconos/googleBW.png"));
+		btnNewButton.setIcon(new ImageIcon("iconos/GOOGLE.png"));
 		btnNewButton.setBackground(Color.WHITE);
 		btnNewButton.setForeground(new Color(0, 0, 0));
 		btnNewButton.setBounds(162, 72, 53, 49);
 		panel.add(btnNewButton);
+		btnNewButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new VentanaCrearUsuarioConGoogle(loginController, erController);
+				dispose();
+				
+			}
+		});
 		
 		JButton btnNewButton_1 = new JButton("");
-		btnNewButton_1.setIcon(new ImageIcon("iconos/facebookBW.png"));
+		btnNewButton_1.setIcon(new ImageIcon("iconos/FACEBOOK.png"));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				new VentanaCrearUsuarioFacebook(loginController, erController);
+				dispose();
 			}
 		});
 		btnNewButton_1.setForeground(Color.BLACK);
