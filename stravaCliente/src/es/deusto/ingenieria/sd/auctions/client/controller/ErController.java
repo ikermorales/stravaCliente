@@ -33,8 +33,8 @@ public class ErController {
 		return this.serviceLocator.getService().calcularEstado(reto, user);
 	}
 	
-	public void crearEntrenamiento(UserDTO usuarioDTO, String deporte, String titulo, String fechaIni, int distancia, String horaIni, int duracion) throws RemoteException {
-		this.serviceLocator.getService().crearEntrenamiento(usuarioDTO, deporte, titulo, fechaIni, distancia, horaIni, duracion);
+	public List<EntrenamientoDTO> crearEntrenamiento(UserDTO usuarioDTO, String deporte, String titulo, String fechaIni, int distancia, String horaIni, int duracion) throws RemoteException {
+		return this.serviceLocator.getService().crearEntrenamiento(usuarioDTO, deporte, titulo, fechaIni, distancia, horaIni, duracion);
 	}
 	
 	public void crearReto(UserDTO user, String deporte, String titulo, String descripcion, String fechaIni, String fechaFin, int objetivo) throws RemoteException {

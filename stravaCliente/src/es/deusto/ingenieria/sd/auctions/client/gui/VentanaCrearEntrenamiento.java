@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.swing.*;
 
@@ -57,56 +58,20 @@ public class VentanaCrearEntrenamiento extends JFrame {
 		btnCrear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-//				ArrayList<EntrenamientoDTO> entrenosNuevos = new ArrayList<>();
-//				
-//				for (EntrenamientoDTO entrenamientoDTO : user.getEntrenamientos()) {
-//					entrenosNuevos.add(entrenamientoDTO);
-//				}
-//				
-//				EntrenamientoDTO dto = new EntrenamientoDTO();
-//				
-//				dto.setDeporte((String) comboBox.getSelectedItem());
-//				dto.setTitulo(textField.getText());
-//				dto.setFechaIni(textField_1.getText());
-//				
-//				try {
-//					int a = (int) spinner_1.getValue();
-//					
-//					float b = (float) a;
-//					
-//					dto.setDistancia(b);
-//					
-//					dto.setHoraIni(textField_2.getText());
-//					
-//					int c = (int) spinner.getValue();
-//					long d = (long) c;
-//					dto.setDuracion(c);
-//				} catch (Exception e2) {
-//					
-//				}
-//				
-//				entrenosNuevos.add(dto);
-//				user.setEntrenamientos(entrenosNuevos);
-				
-				
 				dispose();
 				new VentanaPrincipal(user, erEntrenamientos,loginController);
 
 				try {
-					//(UserDTO usuarioDTO, String deporte, String titulo, String fechaIni, int distancia, String horaIni, int duracion) {
 					int c = (int) spinner.getValue();	
 					int a = (int) spinner_1.getValue();
 					
-					erEntrenamientos.crearEntrenamiento(user, (String) comboBox.getSelectedItem(), textField.getText(), textField_1.getText(), c, textField_2.getText(), a);
-					
-//					UserDTO uNuevo = loginController.actualizarUser(user);
-//					
-					for (EntrenamientoDTO entrena : user.getEntrenamientos()) {
-						System.out.println("Entrenamientooooooooo: "+ entrena.getTitulo());
-					}
-					
-//					user.setEntrenamientos(uNuevo.getEntrenamientos());
-//					user.setRetosAceptados(uNuevo.getRetosAceptados());
+					List<EntrenamientoDTO> eSet = new ArrayList<>();
+					eSet = erEntrenamientos.crearEntrenamiento(user, (String) comboBox.getSelectedItem(), textField.getText(), textField_1.getText(), c, textField_2.getText(), a);
+					user.setEntrenamientos(eSet);		
+//					for (EntrenamientoDTO entrena : user.getEntrenamientos()) {
+//						System.out.println("Entrenamientooooooooo: "+ entrena.getTitulo());
+//					}
+
 				} catch (RemoteException e1) {
 					e1.printStackTrace();
 				}
