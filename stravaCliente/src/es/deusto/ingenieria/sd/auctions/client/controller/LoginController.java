@@ -46,6 +46,10 @@ public class LoginController {
 		return this.serviceLocator.getService().getCheckedUsuario(email, password);
 
 	}
+	
+	public void crearUsuario(TipoUsuarioDTO tipo, String email, String nickname, int alt, int fcm, int fcr, int peso, int rpm) {
+		this.serviceLocator.getService().crearUsuario(tipo, email, nickname, alt, fcm, fcr, peso, rpm);
+	}
 
 
 

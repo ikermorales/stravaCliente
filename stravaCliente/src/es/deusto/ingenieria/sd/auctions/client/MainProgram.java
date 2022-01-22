@@ -1,6 +1,6 @@
 package es.deusto.ingenieria.sd.auctions.client;
 
-import java.util.List;
+import java.util.List; 
 
 import es.deusto.ingenieria.sd.auctions.client.controller.ErController;
 import es.deusto.ingenieria.sd.auctions.client.controller.LoginController;

@@ -109,27 +109,27 @@ public class VentanaCrearReto extends JFrame {
 		JButton btnAnyadir = new JButton("A\u00F1adir");
 		btnAnyadir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				RetoDTO dto = new RetoDTO();
-				dto.setCreador(user);
-				dto.setDeporte((String) comboBoxDeporte.getSelectedItem());
-				dto.setTitulo(titulotxt.getText());
-				dto.setDescripcion(descripciontxt.getText());
-				dto.setFechaFin(fechafintxt.getText());
-				dto.setFechaInicio(fechainiciotxt.getText());
-				
-				try {
-					int a = (int) spinnerObjetivo.getValue();
-					long b = (long) a;
-					dto.setObjetivo(b);
-				} catch (Exception e2) {
-					
-				}
-				
-				try {
-					erController.anyadirRetoARetos(dto, user);
-				} catch (RemoteException e1) {
-					e1.printStackTrace();
-				}
+//				RetoDTO dto = new RetoDTO();
+//				dto.setCreador(user);
+//				dto.setDeporte((String) comboBoxDeporte.getSelectedItem());
+//				dto.setTitulo(titulotxt.getText());
+//				dto.setDescripcion(descripciontxt.getText());
+//				dto.setFechaFin(fechafintxt.getText());
+//				dto.setFechaInicio(fechainiciotxt.getText());
+//				
+//				try {
+//					int a = (int) spinnerObjetivo.getValue();
+//					long b = (long) a;
+//					dto.setObjetivo(b);
+//				} catch (Exception e2) {
+//					
+//				}
+//				
+//				try {
+//					erController.anyadirRetoARetos(dto, user);
+//				} catch (RemoteException e1) {
+//					e1.printStackTrace();
+//				}
 				
 				dispose();
 				new VentanaPrincipal(user, erController);

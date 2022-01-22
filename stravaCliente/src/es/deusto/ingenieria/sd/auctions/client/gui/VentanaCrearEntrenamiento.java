@@ -54,36 +54,36 @@ public class VentanaCrearEntrenamiento extends JFrame {
 		btnCrear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				ArrayList<EntrenamientoDTO> entrenosNuevos = new ArrayList<>();
-				
-				for (EntrenamientoDTO entrenamientoDTO : user.getEntrenamientos()) {
-					entrenosNuevos.add(entrenamientoDTO);
-				}
-				
-				EntrenamientoDTO dto = new EntrenamientoDTO();
-				
-				dto.setDeporte((String) comboBox.getSelectedItem());
-				dto.setTitulo(textField.getText());
-				dto.setFechaIni(textField_1.getText());
-				
-				try {
-					int a = (int) spinner_1.getValue();
-					
-					float b = (float) a;
-					
-					dto.setDistancia(b);
-					
-					dto.setHoraIni(textField_2.getText());
-					
-					int c = (int) spinner.getValue();
-					long d = (long) c;
-					dto.setDuracion(c);
-				} catch (Exception e2) {
-					
-				}
-				
-				entrenosNuevos.add(dto);
-				user.setEntrenamientos(entrenosNuevos);
+//				ArrayList<EntrenamientoDTO> entrenosNuevos = new ArrayList<>();
+//				
+//				for (EntrenamientoDTO entrenamientoDTO : user.getEntrenamientos()) {
+//					entrenosNuevos.add(entrenamientoDTO);
+//				}
+//				
+//				EntrenamientoDTO dto = new EntrenamientoDTO();
+//				
+//				dto.setDeporte((String) comboBox.getSelectedItem());
+//				dto.setTitulo(textField.getText());
+//				dto.setFechaIni(textField_1.getText());
+//				
+//				try {
+//					int a = (int) spinner_1.getValue();
+//					
+//					float b = (float) a;
+//					
+//					dto.setDistancia(b);
+//					
+//					dto.setHoraIni(textField_2.getText());
+//					
+//					int c = (int) spinner.getValue();
+//					long d = (long) c;
+//					dto.setDuracion(c);
+//				} catch (Exception e2) {
+//					
+//				}
+//				
+//				entrenosNuevos.add(dto);
+//				user.setEntrenamientos(entrenosNuevos);
 				
 				
 				dispose();

@@ -112,11 +112,11 @@ public class VentanaVerRetos extends JFrame {
 					}
 				}
 
-				try {
-					erController.quitarRetoARetos(r.getTitulo());
-				} catch (RemoteException e1) {
-					e1.printStackTrace();
-				}
+//				try {
+////					erController.quitarRetoARetos(r.getTitulo());
+//				} catch (RemoteException e1) {
+//					e1.printStackTrace();
+//				}
 
 				dispose();
 				new VentanaPrincipal(user, erController);
