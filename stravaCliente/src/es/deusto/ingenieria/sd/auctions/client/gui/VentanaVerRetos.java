@@ -167,16 +167,21 @@ public class VentanaVerRetos extends JFrame {
 		retosActuales = new ArrayList<>();
 
 		for (RetoDTO reto : retos) {
-			retosActuales.add(reto);		
+			if(!reto.getClass().getSimpleName().matches("RetoAceptado")) {
+				retosActuales.add(reto);
+			}
+
 		}
 		for (RetoDTO reto : retos2) {
-			retosActuales.add(reto);		
+			if(!reto.getClass().getSimpleName().matches("RetoAceptado")) {
+				retosActuales.add(reto);
+			}		
 		}
 
 		for (RetoDTO retoDTO : retosActuales) {
 			comboBox.addItem(retoDTO.getTitulo() + " - " + retoDTO.getDeporte());
 		}
-		
+
 
 		comboBox.setSelectedIndex(-1);
 		comboBox.addActionListener(new ActionListener() {
