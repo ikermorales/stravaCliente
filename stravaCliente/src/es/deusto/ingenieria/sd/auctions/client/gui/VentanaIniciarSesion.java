@@ -112,10 +112,6 @@ public class VentanaIniciarSesion extends JFrame {
 		lblIcono.setFont(new Font("Century Gothic", Font.PLAIN, 20));
 		
 		JButton btnNewButton = new JButton("");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		btnNewButton.setIcon(new ImageIcon("iconos/GOOGLE.png"));
 		btnNewButton.setBackground(Color.WHITE);
 		btnNewButton.setForeground(new Color(0, 0, 0));

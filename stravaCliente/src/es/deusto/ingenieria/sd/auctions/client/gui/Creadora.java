@@ -12,49 +12,62 @@ import javax.swing.JList;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
-
-import es.deusto.ingenieria.sd.auctions.client.controller.ErController;
-import es.deusto.ingenieria.sd.auctions.client.controller.LoginController;
-import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoDTO;
-import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
-
 import javax.swing.JTextField;
 
-public class VentanaVerRetos extends JFrame {
+public class Creadora {
 
+	private JFrame frame;
 	private JTextField textTitulo;
 	private JTextField textDeporte;
 	private JTextField textDescripcion;
 	private JTextField textFechas;
 	private JTextField textObjetivo;
-	private ArrayList<RetoDTO> retosActuales;
-	private HashMap<RetoDTO, JPanel> hashretos;
-	private RetoDTO retoAAnyadir;
 
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Creadora window = new Creadora();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 
-	public VentanaVerRetos(UserDTO user, ErController erController, LoginController loginController, List<RetoDTO> retos, List<RetoDTO> retos2) {
-		getContentPane().setBackground(Color.WHITE);
-		setBounds(100, 100, 300, 424);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		getContentPane().setLayout(null);
-		setLocationRelativeTo(null);
+	/**
+	 * Create the application.
+	 */
+	public Creadora() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.getContentPane().setBackground(Color.WHITE);
+		frame.setBounds(100, 100, 300, 424);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Retos");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Century Gothic", Font.PLAIN, 26));
 		lblNewLabel.setBounds(10, 11, 268, 55);
-		getContentPane().add(lblNewLabel);
+		frame.getContentPane().add(lblNewLabel);
 		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setBounds(10, 95, 268, 35);
-		getContentPane().add(comboBox);
+		frame.getContentPane().add(comboBox);
 		
 		JButton btnNewButton = new JButton("Volver");
 		btnNewButton.setBackground(Color.WHITE);
@@ -63,38 +76,19 @@ public class VentanaVerRetos extends JFrame {
 			}
 		});
 		btnNewButton.setBounds(10, 343, 124, 35);
-		getContentPane().add(btnNewButton);
-		btnNewButton.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				new VentanaPrincipal(user, erController, loginController);
-				dispose();
-				
-			}
-		});
+		frame.getContentPane().add(btnNewButton);
 		
 		JButton btnAceptarReto = new JButton("Aceptar Reto");
 		btnAceptarReto.setBackground(Color.BLACK);
 		btnAceptarReto.setForeground(Color.WHITE);
 		btnAceptarReto.setBounds(154, 343, 124, 35);
-		getContentPane().add(btnAceptarReto);
-		btnAceptarReto.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				
-				new VentanaPrincipal(user, erController, loginController);
-				dispose();
-				
-			}
-		});
+		frame.getContentPane().add(btnAceptarReto);
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new LineBorder(Color.GRAY, 1, true));
 		panel.setBackground(Color.WHITE);
 		panel.setBounds(10, 157, 268, 163);
-		getContentPane().add(panel);
+		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 		
 		JLabel lblNewLabel_1 = new JLabel("Titulo: ");
@@ -156,38 +150,5 @@ public class VentanaVerRetos extends JFrame {
 		textObjetivo.setColumns(10);
 		textObjetivo.setBounds(100, 133, 158, 20);
 		panel.add(textObjetivo);
-		
-		retosActuales = new ArrayList<>();
-		
-		for (RetoDTO reto : retos) {
-			retosActuales.add(reto);		
-		}
-		for (RetoDTO reto : retos2) {
-			retosActuales.add(reto);		
-		}
-		for (RetoDTO retoDTO : retosActuales) {
-			comboBox.addItem(retoDTO.getTitulo() + " - " + retoDTO.getDeporte());
-		}
-		
-		comboBox.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				int index = comboBox.getSelectedIndex();
-				RetoDTO reto = retosActuales.get(index);
-				
-				textDeporte.setText(reto.getDeporte());
-				textDescripcion.setText(reto.getDescripcion());
-				textFechas.setText(reto.getFechaInicio() + " - " + reto.getFechaFin());
-				textObjetivo.setText(reto.getObjetivo()+"");
-				textTitulo.setText(reto.getTitulo());
-				
-				retoAAnyadir = new RetoDTO();
-				retoAAnyadir = reto;
-			}
-		});
-		
-		setVisible(true);
 	}
 }
-
