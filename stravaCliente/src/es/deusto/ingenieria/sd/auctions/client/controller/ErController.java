@@ -29,7 +29,7 @@ public class ErController {
 		}
 	}
 
-	public float calcularEstado(RetoAceptadoDTO reto, UserDTO user)throws RemoteException {
+	public float calcularEstado(RetoDTO reto, UserDTO user)throws RemoteException {
 		return this.serviceLocator.getService().calcularEstado(reto, user);
 	}
 	
@@ -39,6 +39,10 @@ public class ErController {
 	
 	public void crearReto(UserDTO user, String deporte, String titulo, String descripcion, String fechaIni, String fechaFin, int objetivo) throws RemoteException {
 		this.serviceLocator.getService().crearReto(user, deporte, titulo, descripcion, fechaIni, fechaFin, objetivo);
+	}
+	
+	public UserDTO aceptarReto(UserDTO userDTO, RetoDTO retoAAceptar) throws RemoteException {
+		return this.serviceLocator.getService().aceptarReto(userDTO, retoAAceptar);
 	}
 
 

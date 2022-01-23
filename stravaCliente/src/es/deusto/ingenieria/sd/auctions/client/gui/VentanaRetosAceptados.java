@@ -47,7 +47,7 @@ public class VentanaRetosAceptados extends JFrame{
 		getContentPane().add(panel);
 		panel.setLayout(new GridLayout(user.getRetosAceptados().size(), 1, 0, 0));
 		
-		for (RetoAceptadoDTO reto : user.getRetosAceptados()) {
+		for (RetoDTO reto : user.getRetosAceptados()) {
 			JPanel panel_1 = new JPanel();
 			panel_1.setLayout(new GridLayout(7,1));
 			panel_1.setBackground(Color.WHITE);
@@ -62,15 +62,15 @@ public class VentanaRetosAceptados extends JFrame{
 			try {
 				float porciento = erController.calcularEstado(reto, user);
 				if(porciento >= 100) {
-					reto.setPorcentajeCompletado(100);
+					reto.setPorcentaje(100);
 				} else {
-					reto.setPorcentajeCompletado(porciento);
+					reto.setPorcentaje(porciento);
 				}
 			} catch (Exception e1) {
 				e1.printStackTrace();
 			}
 			
-			panel_1.add(new JLabel("Estado: " + reto.getPorcentajeCompletado() + "%"));
+			panel_1.add(new JLabel("Estado: " + reto.getPorcentaje() + "%"));
 			
 			
 			panel.add(panel_1);
